@@ -11,6 +11,7 @@ unsigned char LPFInput[10] = {128, 128, 128, 128, 128, 128, 128, 128, 128, 128};
 unsigned char lastVal = 0;
 unsigned char LPFAvg;
 unsigned char tempIN;
+unsigned char max1 = 0, max2 = 0, max3 = 0, max4 = 0;
 
 unsigned char red = 0;
 unsigned char green = 64;
@@ -83,23 +84,47 @@ void lights(unsigned char height, unsigned char leds) {
     }
 }
 
+void topvals(unsigned char) {
+
+}
+
 int main(void) {
     init();
     __delay_us(200);
 
 
     while (1) {
+        max1 = 0;
+        max2 = 0;
+        max3 = 0;
+        max4 = 0;
         tempIN = adConvert(LPF);
         if (tempIN > 127) {
             LPFInput[lastVal] = tempIN;
             lastVal = (lastVal == 9) ? 0 : lastVal + 1;
         }
-        for (unsigned char v = 0; v != sizeof (LPFInput); v++) {
-            LPFAvg += LPFInput[v];
+        for(i = 0; i < 10; i++){
+            if(LPFInput[i] > max1){
+                max4 = max3;
+                max3 = max2;
+                max2 = max1;
+                max1 = LPFInput[i];
+            }
+            if(LPFInput[i] > max2){
+                max4 = max3;
+                max3 = max2;
+                max2 = LPFInput[i];
+            }
+            if(LPFInput[i] > max3){
+                max4 = max3;
+                max3 = LPFInput[i];
+            }
+            if(LPFInput[i] > max4){
+                max4 = LPFInput[i];
+            }
         }
+        LPFAvg = (max1 + max2 + max3 + max4) / 4;
         lights(LPFAvg, maxLEDs);
-        //pwmLED(LPFInput);
-        //neoRGB(red, green, blue, maxLEDs);
         __delay_ms(50);
     }
 }

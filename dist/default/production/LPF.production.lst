@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.44 build -154322312 
-                                                                                               Fri Dec 01 15:39:40 2017
+                                                                                               Fri Dec 01 16:34:53 2017
 
 Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140600
      1                           	processor	12F1840
@@ -14,1303 +14,1482 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
      8                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
      9                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1
     10                           	psect	inittext,global,class=CODE,delta=2
-    11                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
-    12                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
-    13                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
-    14                           	psect	text1,local,class=CODE,merge=1,delta=2
-    15                           	psect	text2,local,class=CODE,merge=1,delta=2,group=2
-    16                           	psect	text3,local,class=CODE,merge=1,delta=2
-    17                           	psect	text4,local,class=CODE,merge=1,delta=2
-    18                           	dabs	1,0x7E,2
-    19  0000                     
-    20                           ; Version 1.44
-    21                           ; Generated 14/09/2017 GMT
-    22                           ; 
-    23                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    24                           ; All rights reserved.
-    25                           ; 
-    26                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+    11                           	psect	clrtext,global,class=CODE,delta=2
+    12                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    13                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    14                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
+    15                           	psect	text1,local,class=CODE,merge=1,delta=2
+    16                           	psect	text2,local,class=CODE,merge=1,delta=2,group=2
+    17                           	psect	text3,local,class=CODE,merge=1,delta=2
+    18                           	psect	text4,local,class=CODE,merge=1,delta=2
+    19                           	dabs	1,0x7E,2
+    20  0000                     
+    21                           ; Version 1.44
+    22                           ; Generated 14/09/2017 GMT
+    23                           ; 
+    24                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    25                           ; All rights reserved.
+    26                           ; 
+    27                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    27                           ; 
-    28                           ; Redistribution and use in source and binary forms, with or without modification, are
-    29                           ; permitted provided that the following conditions are met:
-    30                           ; 
-    31                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    28                           ; 
+    29                           ; Redistribution and use in source and binary forms, with or without modification, are
+    30                           ; permitted provided that the following conditions are met:
+    31                           ; 
+    32                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    32                           ;        conditions and the following disclaimer.
-    33                           ; 
-    34                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    33                           ;        conditions and the following disclaimer.
+    34                           ; 
+    35                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    35                           ;        of conditions and the following disclaimer in the documentation and/or other
-    36                           ;        materials provided with the distribution.
-    37                           ; 
-    38                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    36                           ;        of conditions and the following disclaimer in the documentation and/or other
+    37                           ;        materials provided with the distribution.
+    38                           ; 
+    39                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    39                           ;        software without specific prior written permission.
-    40                           ; 
-    41                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    42                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    40                           ;        software without specific prior written permission.
+    41                           ; 
+    42                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    43                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    43                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    44                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    44                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    45                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    46                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    45                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    46                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    47                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    47                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    48                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    48                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    49                           ; 
+    49                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     50                           ; 
-    51                           ; Code-generator required, PIC12F1840 Definitions
-    52                           ; 
-    53                           ; SFR Addresses
-    54  0000                     	;# 
-    55  0001                     	;# 
-    56  0002                     	;# 
-    57  0003                     	;# 
-    58  0004                     	;# 
-    59  0005                     	;# 
-    60  0006                     	;# 
-    61  0007                     	;# 
-    62  0008                     	;# 
-    63  0009                     	;# 
-    64  000A                     	;# 
-    65  000B                     	;# 
-    66  000C                     	;# 
-    67  0011                     	;# 
-    68  0012                     	;# 
-    69  0015                     	;# 
-    70  0016                     	;# 
+    51                           ; 
+    52                           ; Code-generator required, PIC12F1840 Definitions
+    53                           ; 
+    54                           ; SFR Addresses
+    55  0000                     	;# 
+    56  0001                     	;# 
+    57  0002                     	;# 
+    58  0003                     	;# 
+    59  0004                     	;# 
+    60  0005                     	;# 
+    61  0006                     	;# 
+    62  0007                     	;# 
+    63  0008                     	;# 
+    64  0009                     	;# 
+    65  000A                     	;# 
+    66  000B                     	;# 
+    67  000C                     	;# 
+    68  0011                     	;# 
+    69  0012                     	;# 
+    70  0015                     	;# 
     71  0016                     	;# 
-    72  0017                     	;# 
-    73  0018                     	;# 
-    74  0019                     	;# 
-    75  001A                     	;# 
-    76  001B                     	;# 
-    77  001C                     	;# 
-    78  001E                     	;# 
-    79  001F                     	;# 
-    80  008C                     	;# 
-    81  0091                     	;# 
-    82  0092                     	;# 
-    83  0095                     	;# 
-    84  0096                     	;# 
-    85  0097                     	;# 
-    86  0098                     	;# 
-    87  0099                     	;# 
-    88  009A                     	;# 
-    89  009B                     	;# 
+    72  0016                     	;# 
+    73  0017                     	;# 
+    74  0018                     	;# 
+    75  0019                     	;# 
+    76  001A                     	;# 
+    77  001B                     	;# 
+    78  001C                     	;# 
+    79  001E                     	;# 
+    80  001F                     	;# 
+    81  008C                     	;# 
+    82  0091                     	;# 
+    83  0092                     	;# 
+    84  0095                     	;# 
+    85  0096                     	;# 
+    86  0097                     	;# 
+    87  0098                     	;# 
+    88  0099                     	;# 
+    89  009A                     	;# 
     90  009B                     	;# 
-    91  009C                     	;# 
-    92  009D                     	;# 
-    93  009E                     	;# 
-    94  010C                     	;# 
-    95  0111                     	;# 
-    96  0112                     	;# 
-    97  0115                     	;# 
-    98  0116                     	;# 
-    99  0117                     	;# 
-   100  0118                     	;# 
-   101  0119                     	;# 
-   102  011A                     	;# 
-   103  011B                     	;# 
-   104  011D                     	;# 
+    91  009B                     	;# 
+    92  009C                     	;# 
+    93  009D                     	;# 
+    94  009E                     	;# 
+    95  010C                     	;# 
+    96  0111                     	;# 
+    97  0112                     	;# 
+    98  0115                     	;# 
+    99  0116                     	;# 
+   100  0117                     	;# 
+   101  0118                     	;# 
+   102  0119                     	;# 
+   103  011A                     	;# 
+   104  011B                     	;# 
    105  011D                     	;# 
-   106  018C                     	;# 
-   107  0191                     	;# 
+   106  011D                     	;# 
+   107  018C                     	;# 
    108  0191                     	;# 
-   109  0192                     	;# 
-   110  0193                     	;# 
+   109  0191                     	;# 
+   110  0192                     	;# 
    111  0193                     	;# 
    112  0193                     	;# 
-   113  0194                     	;# 
-   114  0195                     	;# 
-   115  0196                     	;# 
-   116  0197                     	;# 
-   117  0199                     	;# 
-   118  019A                     	;# 
-   119  019B                     	;# 
+   113  0193                     	;# 
+   114  0194                     	;# 
+   115  0195                     	;# 
+   116  0196                     	;# 
+   117  0197                     	;# 
+   118  0199                     	;# 
+   119  019A                     	;# 
    120  019B                     	;# 
    121  019B                     	;# 
    122  019B                     	;# 
-   123  019C                     	;# 
+   123  019B                     	;# 
    124  019C                     	;# 
-   125  019D                     	;# 
-   126  019E                     	;# 
-   127  019F                     	;# 
-   128  020C                     	;# 
-   129  0211                     	;# 
+   125  019C                     	;# 
+   126  019D                     	;# 
+   127  019E                     	;# 
+   128  019F                     	;# 
+   129  020C                     	;# 
    130  0211                     	;# 
-   131  0212                     	;# 
+   131  0211                     	;# 
    132  0212                     	;# 
-   133  0213                     	;# 
+   133  0212                     	;# 
    134  0213                     	;# 
-   135  0214                     	;# 
+   135  0213                     	;# 
    136  0214                     	;# 
-   137  0215                     	;# 
+   137  0214                     	;# 
    138  0215                     	;# 
    139  0215                     	;# 
-   140  0216                     	;# 
+   140  0215                     	;# 
    141  0216                     	;# 
-   142  0217                     	;# 
+   142  0216                     	;# 
    143  0217                     	;# 
-   144  0291                     	;# 
+   144  0217                     	;# 
    145  0291                     	;# 
-   146  0292                     	;# 
-   147  0293                     	;# 
-   148  0294                     	;# 
-   149  0295                     	;# 
+   146  0291                     	;# 
+   147  0292                     	;# 
+   148  0293                     	;# 
+   149  0294                     	;# 
    150  0295                     	;# 
-   151  0296                     	;# 
-   152  0391                     	;# 
-   153  0392                     	;# 
-   154  0393                     	;# 
-   155  039A                     	;# 
-   156  039C                     	;# 
-   157  039D                     	;# 
-   158  039E                     	;# 
-   159  039F                     	;# 
-   160  0FE4                     	;# 
-   161  0FE5                     	;# 
-   162  0FE6                     	;# 
-   163  0FE7                     	;# 
-   164  0FE8                     	;# 
-   165  0FE9                     	;# 
-   166  0FEA                     	;# 
-   167  0FEB                     	;# 
-   168  0FED                     	;# 
-   169  0FEE                     	;# 
-   170  0FEF                     	;# 
-   171  0000                     	;# 
-   172  0001                     	;# 
-   173  0002                     	;# 
-   174  0003                     	;# 
-   175  0004                     	;# 
-   176  0005                     	;# 
-   177  0006                     	;# 
-   178  0007                     	;# 
-   179  0008                     	;# 
-   180  0009                     	;# 
-   181  000A                     	;# 
-   182  000B                     	;# 
-   183  000C                     	;# 
-   184  0011                     	;# 
-   185  0012                     	;# 
-   186  0015                     	;# 
-   187  0016                     	;# 
+   151  0295                     	;# 
+   152  0296                     	;# 
+   153  0391                     	;# 
+   154  0392                     	;# 
+   155  0393                     	;# 
+   156  039A                     	;# 
+   157  039C                     	;# 
+   158  039D                     	;# 
+   159  039E                     	;# 
+   160  039F                     	;# 
+   161  0FE4                     	;# 
+   162  0FE5                     	;# 
+   163  0FE6                     	;# 
+   164  0FE7                     	;# 
+   165  0FE8                     	;# 
+   166  0FE9                     	;# 
+   167  0FEA                     	;# 
+   168  0FEB                     	;# 
+   169  0FED                     	;# 
+   170  0FEE                     	;# 
+   171  0FEF                     	;# 
+   172  0000                     	;# 
+   173  0001                     	;# 
+   174  0002                     	;# 
+   175  0003                     	;# 
+   176  0004                     	;# 
+   177  0005                     	;# 
+   178  0006                     	;# 
+   179  0007                     	;# 
+   180  0008                     	;# 
+   181  0009                     	;# 
+   182  000A                     	;# 
+   183  000B                     	;# 
+   184  000C                     	;# 
+   185  0011                     	;# 
+   186  0012                     	;# 
+   187  0015                     	;# 
    188  0016                     	;# 
-   189  0017                     	;# 
-   190  0018                     	;# 
-   191  0019                     	;# 
-   192  001A                     	;# 
-   193  001B                     	;# 
-   194  001C                     	;# 
-   195  001E                     	;# 
-   196  001F                     	;# 
-   197  008C                     	;# 
-   198  0091                     	;# 
-   199  0092                     	;# 
-   200  0095                     	;# 
-   201  0096                     	;# 
-   202  0097                     	;# 
-   203  0098                     	;# 
-   204  0099                     	;# 
-   205  009A                     	;# 
-   206  009B                     	;# 
+   189  0016                     	;# 
+   190  0017                     	;# 
+   191  0018                     	;# 
+   192  0019                     	;# 
+   193  001A                     	;# 
+   194  001B                     	;# 
+   195  001C                     	;# 
+   196  001E                     	;# 
+   197  001F                     	;# 
+   198  008C                     	;# 
+   199  0091                     	;# 
+   200  0092                     	;# 
+   201  0095                     	;# 
+   202  0096                     	;# 
+   203  0097                     	;# 
+   204  0098                     	;# 
+   205  0099                     	;# 
+   206  009A                     	;# 
    207  009B                     	;# 
-   208  009C                     	;# 
-   209  009D                     	;# 
-   210  009E                     	;# 
-   211  010C                     	;# 
-   212  0111                     	;# 
-   213  0112                     	;# 
-   214  0115                     	;# 
-   215  0116                     	;# 
-   216  0117                     	;# 
-   217  0118                     	;# 
-   218  0119                     	;# 
-   219  011A                     	;# 
-   220  011B                     	;# 
-   221  011D                     	;# 
+   208  009B                     	;# 
+   209  009C                     	;# 
+   210  009D                     	;# 
+   211  009E                     	;# 
+   212  010C                     	;# 
+   213  0111                     	;# 
+   214  0112                     	;# 
+   215  0115                     	;# 
+   216  0116                     	;# 
+   217  0117                     	;# 
+   218  0118                     	;# 
+   219  0119                     	;# 
+   220  011A                     	;# 
+   221  011B                     	;# 
    222  011D                     	;# 
-   223  018C                     	;# 
-   224  0191                     	;# 
+   223  011D                     	;# 
+   224  018C                     	;# 
    225  0191                     	;# 
-   226  0192                     	;# 
-   227  0193                     	;# 
+   226  0191                     	;# 
+   227  0192                     	;# 
    228  0193                     	;# 
    229  0193                     	;# 
-   230  0194                     	;# 
-   231  0195                     	;# 
-   232  0196                     	;# 
-   233  0197                     	;# 
-   234  0199                     	;# 
-   235  019A                     	;# 
-   236  019B                     	;# 
+   230  0193                     	;# 
+   231  0194                     	;# 
+   232  0195                     	;# 
+   233  0196                     	;# 
+   234  0197                     	;# 
+   235  0199                     	;# 
+   236  019A                     	;# 
    237  019B                     	;# 
    238  019B                     	;# 
    239  019B                     	;# 
-   240  019C                     	;# 
+   240  019B                     	;# 
    241  019C                     	;# 
-   242  019D                     	;# 
-   243  019E                     	;# 
-   244  019F                     	;# 
-   245  020C                     	;# 
-   246  0211                     	;# 
+   242  019C                     	;# 
+   243  019D                     	;# 
+   244  019E                     	;# 
+   245  019F                     	;# 
+   246  020C                     	;# 
    247  0211                     	;# 
-   248  0212                     	;# 
+   248  0211                     	;# 
    249  0212                     	;# 
-   250  0213                     	;# 
+   250  0212                     	;# 
    251  0213                     	;# 
-   252  0214                     	;# 
+   252  0213                     	;# 
    253  0214                     	;# 
-   254  0215                     	;# 
+   254  0214                     	;# 
    255  0215                     	;# 
    256  0215                     	;# 
-   257  0216                     	;# 
+   257  0215                     	;# 
    258  0216                     	;# 
-   259  0217                     	;# 
+   259  0216                     	;# 
    260  0217                     	;# 
-   261  0291                     	;# 
+   261  0217                     	;# 
    262  0291                     	;# 
-   263  0292                     	;# 
-   264  0293                     	;# 
-   265  0294                     	;# 
-   266  0295                     	;# 
+   263  0291                     	;# 
+   264  0292                     	;# 
+   265  0293                     	;# 
+   266  0294                     	;# 
    267  0295                     	;# 
-   268  0296                     	;# 
-   269  0391                     	;# 
-   270  0392                     	;# 
-   271  0393                     	;# 
-   272  039A                     	;# 
-   273  039C                     	;# 
-   274  039D                     	;# 
-   275  039E                     	;# 
-   276  039F                     	;# 
-   277  0FE4                     	;# 
-   278  0FE5                     	;# 
-   279  0FE6                     	;# 
-   280  0FE7                     	;# 
-   281  0FE8                     	;# 
-   282  0FE9                     	;# 
-   283  0FEA                     	;# 
-   284  0FEB                     	;# 
-   285  0FED                     	;# 
-   286  0FEE                     	;# 
-   287  0FEF                     	;# 
-   288  0000                     	;# 
-   289  0001                     	;# 
-   290  0002                     	;# 
-   291  0003                     	;# 
-   292  0004                     	;# 
-   293  0005                     	;# 
-   294  0006                     	;# 
-   295  0007                     	;# 
-   296  0008                     	;# 
-   297  0009                     	;# 
-   298  000A                     	;# 
-   299  000B                     	;# 
-   300  000C                     	;# 
-   301  0011                     	;# 
-   302  0012                     	;# 
-   303  0015                     	;# 
-   304  0016                     	;# 
+   268  0295                     	;# 
+   269  0296                     	;# 
+   270  0391                     	;# 
+   271  0392                     	;# 
+   272  0393                     	;# 
+   273  039A                     	;# 
+   274  039C                     	;# 
+   275  039D                     	;# 
+   276  039E                     	;# 
+   277  039F                     	;# 
+   278  0FE4                     	;# 
+   279  0FE5                     	;# 
+   280  0FE6                     	;# 
+   281  0FE7                     	;# 
+   282  0FE8                     	;# 
+   283  0FE9                     	;# 
+   284  0FEA                     	;# 
+   285  0FEB                     	;# 
+   286  0FED                     	;# 
+   287  0FEE                     	;# 
+   288  0FEF                     	;# 
+   289  0000                     	;# 
+   290  0001                     	;# 
+   291  0002                     	;# 
+   292  0003                     	;# 
+   293  0004                     	;# 
+   294  0005                     	;# 
+   295  0006                     	;# 
+   296  0007                     	;# 
+   297  0008                     	;# 
+   298  0009                     	;# 
+   299  000A                     	;# 
+   300  000B                     	;# 
+   301  000C                     	;# 
+   302  0011                     	;# 
+   303  0012                     	;# 
+   304  0015                     	;# 
    305  0016                     	;# 
-   306  0017                     	;# 
-   307  0018                     	;# 
-   308  0019                     	;# 
-   309  001A                     	;# 
-   310  001B                     	;# 
-   311  001C                     	;# 
-   312  001E                     	;# 
-   313  001F                     	;# 
-   314  008C                     	;# 
-   315  0091                     	;# 
-   316  0092                     	;# 
-   317  0095                     	;# 
-   318  0096                     	;# 
-   319  0097                     	;# 
-   320  0098                     	;# 
-   321  0099                     	;# 
-   322  009A                     	;# 
-   323  009B                     	;# 
+   306  0016                     	;# 
+   307  0017                     	;# 
+   308  0018                     	;# 
+   309  0019                     	;# 
+   310  001A                     	;# 
+   311  001B                     	;# 
+   312  001C                     	;# 
+   313  001E                     	;# 
+   314  001F                     	;# 
+   315  008C                     	;# 
+   316  0091                     	;# 
+   317  0092                     	;# 
+   318  0095                     	;# 
+   319  0096                     	;# 
+   320  0097                     	;# 
+   321  0098                     	;# 
+   322  0099                     	;# 
+   323  009A                     	;# 
    324  009B                     	;# 
-   325  009C                     	;# 
-   326  009D                     	;# 
-   327  009E                     	;# 
-   328  010C                     	;# 
-   329  0111                     	;# 
-   330  0112                     	;# 
-   331  0115                     	;# 
-   332  0116                     	;# 
-   333  0117                     	;# 
-   334  0118                     	;# 
-   335  0119                     	;# 
-   336  011A                     	;# 
-   337  011B                     	;# 
-   338  011D                     	;# 
+   325  009B                     	;# 
+   326  009C                     	;# 
+   327  009D                     	;# 
+   328  009E                     	;# 
+   329  010C                     	;# 
+   330  0111                     	;# 
+   331  0112                     	;# 
+   332  0115                     	;# 
+   333  0116                     	;# 
+   334  0117                     	;# 
+   335  0118                     	;# 
+   336  0119                     	;# 
+   337  011A                     	;# 
+   338  011B                     	;# 
    339  011D                     	;# 
-   340  018C                     	;# 
-   341  0191                     	;# 
+   340  011D                     	;# 
+   341  018C                     	;# 
    342  0191                     	;# 
-   343  0192                     	;# 
-   344  0193                     	;# 
+   343  0191                     	;# 
+   344  0192                     	;# 
    345  0193                     	;# 
    346  0193                     	;# 
-   347  0194                     	;# 
-   348  0195                     	;# 
-   349  0196                     	;# 
-   350  0197                     	;# 
-   351  0199                     	;# 
-   352  019A                     	;# 
-   353  019B                     	;# 
+   347  0193                     	;# 
+   348  0194                     	;# 
+   349  0195                     	;# 
+   350  0196                     	;# 
+   351  0197                     	;# 
+   352  0199                     	;# 
+   353  019A                     	;# 
    354  019B                     	;# 
    355  019B                     	;# 
    356  019B                     	;# 
-   357  019C                     	;# 
+   357  019B                     	;# 
    358  019C                     	;# 
-   359  019D                     	;# 
-   360  019E                     	;# 
-   361  019F                     	;# 
-   362  020C                     	;# 
-   363  0211                     	;# 
+   359  019C                     	;# 
+   360  019D                     	;# 
+   361  019E                     	;# 
+   362  019F                     	;# 
+   363  020C                     	;# 
    364  0211                     	;# 
-   365  0212                     	;# 
+   365  0211                     	;# 
    366  0212                     	;# 
-   367  0213                     	;# 
+   367  0212                     	;# 
    368  0213                     	;# 
-   369  0214                     	;# 
+   369  0213                     	;# 
    370  0214                     	;# 
-   371  0215                     	;# 
+   371  0214                     	;# 
    372  0215                     	;# 
    373  0215                     	;# 
-   374  0216                     	;# 
+   374  0215                     	;# 
    375  0216                     	;# 
-   376  0217                     	;# 
+   376  0216                     	;# 
    377  0217                     	;# 
-   378  0291                     	;# 
+   378  0217                     	;# 
    379  0291                     	;# 
-   380  0292                     	;# 
-   381  0293                     	;# 
-   382  0294                     	;# 
-   383  0295                     	;# 
+   380  0291                     	;# 
+   381  0292                     	;# 
+   382  0293                     	;# 
+   383  0294                     	;# 
    384  0295                     	;# 
-   385  0296                     	;# 
-   386  0391                     	;# 
-   387  0392                     	;# 
-   388  0393                     	;# 
-   389  039A                     	;# 
-   390  039C                     	;# 
-   391  039D                     	;# 
-   392  039E                     	;# 
-   393  039F                     	;# 
-   394  0FE4                     	;# 
-   395  0FE5                     	;# 
-   396  0FE6                     	;# 
-   397  0FE7                     	;# 
-   398  0FE8                     	;# 
-   399  0FE9                     	;# 
-   400  0FEA                     	;# 
-   401  0FEB                     	;# 
-   402  0FED                     	;# 
-   403  0FEE                     	;# 
-   404  0FEF                     	;# 
-   405                           
-   406                           	psect	idataBANK0
-   407  067E                     __pidataBANK0:	
-   408                           
-   409                           ;initializer for _LPFInput
-   410  067E  3480               	retlw	128
-   411  067F  3480               	retlw	128
-   412  0680  3480               	retlw	128
-   413  0681  3480               	retlw	128
-   414  0682  3480               	retlw	128
-   415  0683  3480               	retlw	128
-   416  0684  3480               	retlw	128
-   417  0685  3480               	retlw	128
-   418  0686  3480               	retlw	128
-   419  0687  3480               	retlw	128
-   420                           
-   421                           ;initializer for _green
-   422  0688  3440               	retlw	64
-   423                           
-   424                           	psect	stringtext1
-   425  0800                     __pstringtext1:	
-   426  0800                     _maxLEDs:	
-   427  0800  341E               	retlw	30
-   428  0801                     __end_of_maxLEDs:	
-   429  000B                     _INTCON	set	11
-   430  000C                     _PORTA	set	12
-   431  009C                     _ADRESH	set	156
-   432  0097                     _WDTCON	set	151
-   433  008C                     _TRISA	set	140
-   434  009E                     _ADCON1	set	158
-   435  009D                     _ADCON0	set	157
-   436  0095                     _OPTION_REG	set	149
-   437  0099                     _OSCCON	set	153
-   438  04E9                     _GO	set	1257
-   439  04E8                     _ADON	set	1256
-   440  04D6                     _PLLR	set	1238
-   441  010C                     _LATA	set	268
-   442  018C                     _ANSELA	set	396
-   443  020C                     _WPUA	set	524
-   444                           
-   445                           ; #config settings
-   446  0000                     
-   447                           	psect	cinit
-   448  07E8                     start_initialization:	
-   449  07E8                     __initialization:	
-   450                           
-   451                           ; Initialize objects allocated to BANK0
-   452  07E8  307E               	movlw	low __pidataBANK0
-   453  07E9  0084               	movwf	4
-   454  07EA  3086               	movlw	(high __pidataBANK0)| (0+128)
-   455  07EB  0085               	movwf	5
-   456  07EC  3020               	movlw	low __pdataBANK0
-   457  07ED  0086               	movwf	6
-   458  07EE  3000               	movlw	high __pdataBANK0
-   459  07EF  0087               	movwf	7
-   460  07F0  300B               	movlw	11
-   461  07F1  3186  2678         	fcall	init_ram
-   462                           
-   463                           ; Clear objects allocated to COMMON
-   464  07F3  01FD               	clrf	__pbssCOMMON& (0+127)
-   465                           
-   466                           ; Clear objects allocated to BANK0
-   467  07F4  01AB               	clrf	__pbssBANK0& (0+127)
-   468  07F5  01AC               	clrf	(__pbssBANK0+1)& (0+127)
-   469  07F6  01AD               	clrf	(__pbssBANK0+2)& (0+127)
-   470  07F7  01AE               	clrf	(__pbssBANK0+3)& (0+127)
-   471  07F8  01AF               	clrf	(__pbssBANK0+4)& (0+127)
-   472  07F9  01B0               	clrf	(__pbssBANK0+5)& (0+127)
-   473  07FA  01B1               	clrf	(__pbssBANK0+6)& (0+127)
-   474  07FB  01B2               	clrf	(__pbssBANK0+7)& (0+127)
-   475  07FC  01B3               	clrf	(__pbssBANK0+8)& (0+127)
-   476  07FD                     end_of_initialization:	
-   477                           ;End of C runtime variable initialization code
-   478                           
-   479  07FD                     __end_of__initialization:	
-   480  07FD  0020               	movlb	0
-   481  07FE  3187  2F0A         	ljmp	_main	;jump to C main() function
-   482                           
-   483                           	psect	bssCOMMON
-   484  007D                     __pbssCOMMON:	
-   485  007D                     _i:	
-   486  007D                     	ds	1
-   487                           
-   488                           	psect	bssBANK0
-   489  002B                     __pbssBANK0:	
-   490  002B                     _temp:	
-   491  002B                     	ds	1
-   492  002C                     _tempBlue:	
-   493  002C                     	ds	1
-   494  002D                     _tempGreen:	
-   495  002D                     	ds	1
-   496  002E                     _tempRed:	
-   497  002E                     	ds	1
-   498  002F                     _blue:	
-   499  002F                     	ds	1
-   500  0030                     _red:	
-   501  0030                     	ds	1
-   502  0031                     _tempIN:	
-   503  0031                     	ds	1
-   504  0032                     _LPFAvg:	
-   505  0032                     	ds	1
-   506  0033                     _lastVal:	
-   507  0033                     	ds	1
-   508                           
-   509                           	psect	dataBANK0
-   510  0020                     __pdataBANK0:	
-   511  0020                     _LPFInput:	
-   512  0020                     	ds	10
-   513  002A                     _green:	
-   514  002A                     	ds	1
-   515                           
-   516                           	psect	inittext
-   517  0678                     init_ram:	
-   518  0678  00FE               	movwf	126
-   519  0679                     initloop:	
-   520  0679  0012               	moviw fsr0++
-   521  067A  001E               	movwi fsr1++
-   522  067B  0BFE               	decfsz	126,f
-   523  067C  2E79               	goto	initloop
-   524  067D  3400               	retlw	0
-   525                           
-   526                           	psect	cstackCOMMON
-   527  0070                     __pcstackCOMMON:	
-   528  0070                     ?_init:	
-   529  0070                     ??_init:	
-   530                           ; 1 bytes @ 0x0
+   385  0295                     	;# 
+   386  0296                     	;# 
+   387  0391                     	;# 
+   388  0392                     	;# 
+   389  0393                     	;# 
+   390  039A                     	;# 
+   391  039C                     	;# 
+   392  039D                     	;# 
+   393  039E                     	;# 
+   394  039F                     	;# 
+   395  0FE4                     	;# 
+   396  0FE5                     	;# 
+   397  0FE6                     	;# 
+   398  0FE7                     	;# 
+   399  0FE8                     	;# 
+   400  0FE9                     	;# 
+   401  0FEA                     	;# 
+   402  0FEB                     	;# 
+   403  0FED                     	;# 
+   404  0FEE                     	;# 
+   405  0FEF                     	;# 
+   406                           
+   407                           	psect	idataBANK0
+   408  0607                     __pidataBANK0:	
+   409                           
+   410                           ;initializer for _LPFInput
+   411  0607  3480               	retlw	128
+   412  0608  3480               	retlw	128
+   413  0609  3480               	retlw	128
+   414  060A  3480               	retlw	128
+   415  060B  3480               	retlw	128
+   416  060C  3480               	retlw	128
+   417  060D  3480               	retlw	128
+   418  060E  3480               	retlw	128
+   419  060F  3480               	retlw	128
+   420  0610  3480               	retlw	128
+   421                           
+   422                           ;initializer for _green
+   423  0611  3440               	retlw	64
+   424                           
+   425                           	psect	stringtext1
+   426  0800                     __pstringtext1:	
+   427  0800                     _maxLEDs:	
+   428  0800  341E               	retlw	30
+   429  0801                     __end_of_maxLEDs:	
+   430  000B                     _INTCON	set	11
+   431  000C                     _PORTA	set	12
+   432  009C                     _ADRESH	set	156
+   433  0097                     _WDTCON	set	151
+   434  008C                     _TRISA	set	140
+   435  009E                     _ADCON1	set	158
+   436  009D                     _ADCON0	set	157
+   437  0095                     _OPTION_REG	set	149
+   438  0099                     _OSCCON	set	153
+   439  04E9                     _GO	set	1257
+   440  04E8                     _ADON	set	1256
+   441  04D6                     _PLLR	set	1238
+   442  010C                     _LATA	set	268
+   443  018C                     _ANSELA	set	396
+   444  020C                     _WPUA	set	524
+   445                           
+   446                           ; #config settings
+   447  0000                     
+   448                           	psect	cinit
+   449  07E9                     start_initialization:	
+   450  07E9                     __initialization:	
+   451                           
+   452                           ; Initialize objects allocated to BANK0
+   453  07E9  3007               	movlw	low __pidataBANK0
+   454  07EA  0084               	movwf	4
+   455  07EB  3086               	movlw	(high __pidataBANK0)| (0+128)
+   456  07EC  0085               	movwf	5
+   457  07ED  303B               	movlw	low __pdataBANK0
+   458  07EE  0086               	movwf	6
+   459  07EF  3000               	movlw	high __pdataBANK0
+   460  07F0  0087               	movwf	7
+   461  07F1  300B               	movlw	11
+   462  07F2  3186  2601  3187   	fcall	init_ram
+   463                           
+   464                           ; Clear objects allocated to COMMON
+   465  07F5  01FD               	clrf	__pbssCOMMON& (0+127)
+   466                           
+   467                           ; Clear objects allocated to BANK0
+   468  07F6  302E               	movlw	low __pbssBANK0
+   469  07F7  0084               	movwf	4
+   470  07F8  3000               	movlw	high __pbssBANK0
+   471  07F9  0085               	movwf	5
+   472  07FA  300D               	movlw	13
+   473  07FB  3185  25FB         	fcall	clear_ram0
+   474  07FD                     end_of_initialization:	
+   475                           ;End of C runtime variable initialization code
+   476                           
+   477  07FD                     __end_of__initialization:	
+   478  07FD  0020               	movlb	0
+   479  07FE  3187  2F13         	ljmp	_main	;jump to C main() function
+   480                           
+   481                           	psect	bssCOMMON
+   482  007D                     __pbssCOMMON:	
+   483  007D                     _i:	
+   484  007D                     	ds	1
+   485                           
+   486                           	psect	bssBANK0
+   487  002E                     __pbssBANK0:	
+   488  002E                     _temp:	
+   489  002E                     	ds	1
+   490  002F                     _tempBlue:	
+   491  002F                     	ds	1
+   492  0030                     _tempGreen:	
+   493  0030                     	ds	1
+   494  0031                     _tempRed:	
+   495  0031                     	ds	1
+   496  0032                     _blue:	
+   497  0032                     	ds	1
+   498  0033                     _red:	
+   499  0033                     	ds	1
+   500  0034                     _max4:	
+   501  0034                     	ds	1
+   502  0035                     _max3:	
+   503  0035                     	ds	1
+   504  0036                     _max2:	
+   505  0036                     	ds	1
+   506  0037                     _max1:	
+   507  0037                     	ds	1
+   508  0038                     _tempIN:	
+   509  0038                     	ds	1
+   510  0039                     _LPFAvg:	
+   511  0039                     	ds	1
+   512  003A                     _lastVal:	
+   513  003A                     	ds	1
+   514                           
+   515                           	psect	dataBANK0
+   516  003B                     __pdataBANK0:	
+   517  003B                     _LPFInput:	
+   518  003B                     	ds	10
+   519  0045                     _green:	
+   520  0045                     	ds	1
+   521                           
+   522                           	psect	inittext
+   523  0601                     init_ram:	
+   524  0601  00FE               	movwf	126
+   525  0602                     initloop:	
+   526  0602  0012               	moviw fsr0++
+   527  0603  001E               	movwi fsr1++
+   528  0604  0BFE               	decfsz	126,f
+   529  0605  2E02               	goto	initloop
+   530  0606  3400               	retlw	0
    531                           
-   532  0070                     ?_adConvert:	
-   533                           ; 1 bytes @ 0x0
-   534                           
-   535  0070                     ??_adConvert:	
-   536                           ; 1 bytes @ 0x0
-   537                           
-   538  0070                     ?_main:	
-   539                           ; 1 bytes @ 0x0
-   540                           
-   541  0070                     ?___awdiv:	
-   542                           ; 2 bytes @ 0x0
-   543                           
-   544  0070                     adConvert@chan:	
-   545                           ; 2 bytes @ 0x0
-   546                           
-   547  0070                     ___awdiv@divisor:	
-   548                           ; 1 bytes @ 0x0
-   549                           
+   532                           	psect	clrtext
+   533  05FB                     clear_ram0:	
+   534                           ;	Called with FSR0 containing the base address, and
+   535                           ;	WREG with the size to clear
+   536                           
+   537  05FB  0064               	clrwdt	;clear the watchdog before getting into this loop
+   538  05FC                     clrloop0:	
+   539  05FC  0180               	clrf	0	;clear RAM location pointed to by FSR
+   540  05FD  3101               	addfsr 0,1
+   541  05FE  0B89               	decfsz	9,f	;Have we reached the end of clearing yet?
+   542  05FF  2DFC               	goto	clrloop0	;have we reached the end yet?
+   543  0600  3400               	retlw	0	;all done for this memory range, return
+   544                           
+   545                           	psect	cstackCOMMON
+   546  0070                     __pcstackCOMMON:	
+   547  0070                     ?_init:	
+   548  0070                     ??_init:	
+   549                           ; 1 bytes @ 0x0
    550                           
-   551                           ; 2 bytes @ 0x0
-   552  0070                     	ds	2
-   553  0072                     ___awdiv@dividend:	
-   554                           
-   555                           ; 2 bytes @ 0x2
-   556  0072                     	ds	2
-   557  0074                     ??___awdiv:	
-   558                           
-   559                           ; 1 bytes @ 0x4
-   560  0074                     	ds	1
-   561  0075                     ___awdiv@counter:	
+   551  0070                     ?_adConvert:	
+   552                           ; 1 bytes @ 0x0
+   553                           
+   554  0070                     ??_adConvert:	
+   555                           ; 1 bytes @ 0x0
+   556                           
+   557  0070                     ?_main:	
+   558                           ; 1 bytes @ 0x0
+   559                           
+   560  0070                     ?___awdiv:	
+   561                           ; 2 bytes @ 0x0
    562                           
-   563                           ; 1 bytes @ 0x5
-   564  0075                     	ds	1
-   565  0076                     ___awdiv@sign:	
-   566                           
-   567                           ; 1 bytes @ 0x6
-   568  0076                     	ds	1
-   569  0077                     ___awdiv@quotient:	
-   570                           
-   571                           ; 2 bytes @ 0x7
-   572  0077                     	ds	2
-   573  0079                     ?_lights:	
-   574  0079                     lights@leds:	
-   575                           ; 1 bytes @ 0x9
-   576                           
+   563  0070                     adConvert@chan:	
+   564                           ; 2 bytes @ 0x0
+   565                           
+   566  0070                     ___awdiv@divisor:	
+   567                           ; 1 bytes @ 0x0
+   568                           
+   569                           
+   570                           ; 2 bytes @ 0x0
+   571  0070                     	ds	2
+   572  0072                     ___awdiv@dividend:	
+   573                           
+   574                           ; 2 bytes @ 0x2
+   575  0072                     	ds	2
+   576  0074                     ??___awdiv:	
    577                           
-   578                           ; 1 bytes @ 0x9
-   579  0079                     	ds	1
-   580  007A                     ??_lights:	
+   578                           ; 1 bytes @ 0x4
+   579  0074                     	ds	1
+   580  0075                     ___awdiv@counter:	
    581                           
-   582                           ; 1 bytes @ 0xA
-   583  007A                     	ds	3
-   584                           
-   585                           	psect	cstackBANK0
-   586  0034                     __pcstackBANK0:	
-   587  0034                     _lights$61:	
-   588                           
-   589                           ; 2 bytes @ 0x0
-   590  0034                     	ds	2
-   591  0036                     lights@height:	
-   592                           
-   593                           ; 1 bytes @ 0x2
-   594  0036                     	ds	1
-   595  0037                     ??_main:	
+   582                           ; 1 bytes @ 0x5
+   583  0075                     	ds	1
+   584  0076                     ___awdiv@sign:	
+   585                           
+   586                           ; 1 bytes @ 0x6
+   587  0076                     	ds	1
+   588  0077                     ___awdiv@quotient:	
+   589                           
+   590                           ; 2 bytes @ 0x7
+   591  0077                     	ds	2
+   592  0079                     ?_lights:	
+   593  0079                     lights@leds:	
+   594                           ; 1 bytes @ 0x9
+   595                           
    596                           
-   597                           ; 1 bytes @ 0x3
-   598  0037                     	ds	2
-   599  0039                     _main$69:	
+   597                           ; 1 bytes @ 0x9
+   598  0079                     	ds	1
+   599  007A                     ??_lights:	
    600                           
-   601                           ; 2 bytes @ 0x5
-   602  0039                     	ds	2
-   603  003B                     main@v:	
-   604                           
-   605                           ; 1 bytes @ 0x7
-   606  003B                     	ds	1
+   601                           ; 1 bytes @ 0xA
+   602  007A                     	ds	3
+   603                           
+   604                           	psect	cstackBANK0
+   605  0020                     __pcstackBANK0:	
+   606  0020                     _lights$65:	
    607                           
-   608                           	psect	maintext
-   609  070A                     __pmaintext:	
-   610 ;;
-   611 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
-   612 ;;
-   613 ;; *************** function _main *****************
-   614 ;; Defined at:
-   615 ;;		line 86 in file "RAINBO-LPF.c"
-   616 ;; Parameters:    Size  Location     Type
-   617 ;;		None
-   618 ;; Auto vars:     Size  Location     Type
-   619 ;;  v               1    7[BANK0 ] unsigned char 
-   620 ;; Return value:  Size  Location     Type
-   621 ;;                  2   97[None  ] int 
-   622 ;; Registers used:
-   623 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
-   624 ;; Tracked objects:
-   625 ;;		On entry : B1F/0
-   626 ;;		On exit  : 0/0
-   627 ;;		Unchanged: 0/0
-   628 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-   629 ;;      Params:         0       0       0       0
-   630 ;;      Locals:         0       3       0       0
-   631 ;;      Temps:          0       2       0       0
-   632 ;;      Totals:         0       5       0       0
-   633 ;;Total ram usage:        5 bytes
-   634 ;; Hardware stack levels required when called:    2
-   635 ;; This function calls:
-   636 ;;		_adConvert
-   637 ;;		_init
-   638 ;;		_lights
-   639 ;; This function is called by:
-   640 ;;		Startup code after reset
-   641 ;; This function uses a non-reentrant model
-   642 ;;
-   643                           
-   644                           
-   645                           ;psect for function _main
-   646  070A                     _main:	
-   647                           
-   648                           ;RAINBO-LPF.c: 87: init();
-   649                           
-   650                           ;incstack = 0
-   651                           ; Regs used in _main: [wreg-fsr1h+status,2+status,0+pclath+cstack]
-   652  070A  3186  269D  3187   	fcall	_init
-   653                           
-   654                           ;RAINBO-LPF.c: 88: _delay((unsigned long)((200)*(32000000/4000000.0)));
-   655  070D  30E4               	movlw	228
-   656  070E                     u557:	
-   657  070E  3200               	nop2
-   658  070F  3200               	nop2
-   659  0710  0B89               	decfsz	9,f
-   660  0711  2F0E               	goto	u557
-   661  0712  3200               	nop2
-   662  0713  3200               	nop2
-   663  0714                     l848:	
-   664                           ;RAINBO-LPF.c: 91: while (1) {
+   608                           ; 2 bytes @ 0x0
+   609  0020                     	ds	2
+   610  0022                     lights@height:	
+   611                           
+   612                           ; 1 bytes @ 0x2
+   613  0022                     	ds	1
+   614  0023                     ??_main:	
+   615                           
+   616                           ; 1 bytes @ 0x3
+   617  0023                     	ds	9
+   618  002C                     _main$75:	
+   619                           
+   620                           ; 2 bytes @ 0xC
+   621  002C                     	ds	2
+   622                           
+   623                           	psect	maintext
+   624  0713                     __pmaintext:	
+   625 ;;
+   626 ;;Main: autosize = 0, tempsize = 9, incstack = 0, save=0
+   627 ;;
+   628 ;; *************** function _main *****************
+   629 ;; Defined at:
+   630 ;;		line 91 in file "RAINBO-LPF.c"
+   631 ;; Parameters:    Size  Location     Type
+   632 ;;		None
+   633 ;; Auto vars:     Size  Location     Type
+   634 ;;		None
+   635 ;; Return value:  Size  Location     Type
+   636 ;;                  2  108[None  ] int 
+   637 ;; Registers used:
+   638 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+   639 ;; Tracked objects:
+   640 ;;		On entry : B1F/0
+   641 ;;		On exit  : 0/0
+   642 ;;		Unchanged: 0/0
+   643 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   644 ;;      Params:         0       0       0       0
+   645 ;;      Locals:         0       2       0       0
+   646 ;;      Temps:          0       9       0       0
+   647 ;;      Totals:         0      11       0       0
+   648 ;;Total ram usage:       11 bytes
+   649 ;; Hardware stack levels required when called:    2
+   650 ;; This function calls:
+   651 ;;		___awdiv
+   652 ;;		_adConvert
+   653 ;;		_init
+   654 ;;		_lights
+   655 ;; This function is called by:
+   656 ;;		Startup code after reset
+   657 ;; This function uses a non-reentrant model
+   658 ;;
+   659                           
+   660                           
+   661                           ;psect for function _main
+   662  0713                     _main:	
+   663                           
+   664                           ;RAINBO-LPF.c: 92: init();
    665                           
-   666                           
-   667                           ;RAINBO-LPF.c: 92: tempIN = adConvert(0b00000100);
-   668  0714  3004               	movlw	4
-   669  0715  3186  2689  3187   	fcall	_adConvert
-   670  0718  0020               	movlb	0	; select bank0
-   671  0719  00B7               	movwf	??_main
-   672  071A  0837               	movf	??_main,w
-   673  071B  00B1               	movwf	_tempIN
-   674                           
-   675                           ;RAINBO-LPF.c: 93: if (tempIN > 127) {
-   676  071C  3080               	movlw	128
-   677  071D  0231               	subwf	_tempIN,w
-   678  071E  1C03               	skipc
-   679  071F  2F3A               	goto	l860
-   680                           
-   681                           ;RAINBO-LPF.c: 94: LPFInput[lastVal] = tempIN;
-   682  0720  0831               	movf	_tempIN,w
-   683  0721  00B7               	movwf	??_main
-   684  0722  0833               	movf	_lastVal,w
-   685  0723  3E20               	addlw	(low (_LPFInput| 0))& (0+255)
-   686  0724  0086               	movwf	6
-   687  0725  0187               	clrf	7
-   688  0726  0837               	movf	??_main,w
-   689  0727  0081               	movwf	1
-   690                           
-   691                           ;RAINBO-LPF.c: 95: lastVal = (lastVal == 9) ? 0 : lastVal + 1;
-   692  0728  3009               	movlw	9
-   693  0729  0633               	xorwf	_lastVal,w
-   694  072A  1903               	btfsc	3,2
-   695  072B  2F34               	goto	l856
-   696  072C  0833               	movf	_lastVal,w
-   697  072D  3E01               	addlw	1
-   698  072E  00B9               	movwf	_main$69
-   699  072F  3000               	movlw	0
-   700  0730  1803               	skipnc
-   701  0731  3001               	movlw	1
-   702  0732  00BA               	movwf	_main$69+1
-   703  0733  2F36               	goto	l858
-   704  0734                     l856:	
-   705  0734  01B9               	clrf	_main$69
-   706  0735  01BA               	clrf	_main$69+1
-   707  0736                     l858:	
-   708  0736  0839               	movf	_main$69,w
-   709  0737  00B7               	movwf	??_main
-   710  0738  0837               	movf	??_main,w
-   711  0739  00B3               	movwf	_lastVal
-   712  073A                     l860:	
-   713                           
-   714                           ;RAINBO-LPF.c: 96: }
-   715                           ;RAINBO-LPF.c: 97: for (unsigned char v = 0; v != sizeof (LPFInput); v++) {
-   716  073A  01BB               	clrf	main@v
-   717  073B  300A               	movlw	10
-   718  073C  063B               	xorwf	main@v,w
-   719  073D  1903               	btfsc	3,2
-   720  073E  2F4F               	goto	l872
-   721  073F                     l866:	
-   722                           
-   723                           ;RAINBO-LPF.c: 98: LPFAvg += LPFInput[v];
-   724  073F  083B               	movf	main@v,w
-   725  0740  3E20               	addlw	(low (_LPFInput| 0))& (0+255)
-   726  0741  0086               	movwf	6
-   727  0742  0187               	clrf	7
-   728  0743  0801               	movf	1,w
-   729  0744  00B7               	movwf	??_main
-   730  0745  0837               	movf	??_main,w
-   731  0746  07B2               	addwf	_LPFAvg,f
-   732  0747  3001               	movlw	1
-   733  0748  00B7               	movwf	??_main
-   734  0749  0837               	movf	??_main,w
-   735  074A  07BB               	addwf	main@v,f
-   736  074B  300A               	movlw	10
-   737  074C  063B               	xorwf	main@v,w
-   738  074D  1D03               	btfss	3,2
-   739  074E  2F3F               	goto	l866
-   740  074F                     l872:	
-   741                           
-   742                           ;RAINBO-LPF.c: 99: }
-   743                           ;RAINBO-LPF.c: 100: lights(LPFAvg, maxLEDs);
-   744  074F  3000               	movlw	low (_maxLEDs| (0+32768))
-   745  0750  0084               	movwf	4
-   746  0751  3088               	movlw	high (_maxLEDs| (0+32768))
-   747  0752  0085               	movwf	5
-   748  0753  0800               	movf	0,w	;code access
-   749  0754  00B7               	movwf	??_main
-   750  0755  0837               	movf	??_main,w
-   751  0756  00F9               	movwf	lights@leds
-   752  0757  0832               	movf	_LPFAvg,w
-   753  0758  3187  2768  3187   	fcall	_lights
-   754                           
-   755                           ;RAINBO-LPF.c: 103: _delay((unsigned long)((50)*(32000000/4000.0)));
-   756  075B  3003               	movlw	3
-   757  075C  0020               	movlb	0	; select bank0
-   758  075D  00B8               	movwf	??_main+1
-   759  075E  3008               	movlw	8
-   760  075F  00B7               	movwf	??_main
-   761  0760  3077               	movlw	119
-   762  0761                     u567:	
-   763  0761  0B89               	decfsz	9,f
-   764  0762  2F61               	goto	u567
-   765  0763  0BB7               	decfsz	??_main,f
-   766  0764  2F61               	goto	u567
-   767  0765  0BB8               	decfsz	??_main+1,f
-   768  0766  2F61               	goto	u567
-   769  0767  2F14               	goto	l848
-   770  0768                     __end_of_main:	
-   771                           
-   772                           	psect	text1
-   773  0768                     __ptext1:	
-   774 ;; *************** function _lights *****************
-   775 ;; Defined at:
-   776 ;;		line 41 in file "RAINBO-LPF.c"
-   777 ;; Parameters:    Size  Location     Type
-   778 ;;  height          1    wreg     unsigned char 
-   779 ;;  leds            1    9[COMMON] unsigned char 
-   780 ;; Auto vars:     Size  Location     Type
-   781 ;;  height          1    2[BANK0 ] unsigned char 
-   782 ;; Return value:  Size  Location     Type
-   783 ;;                  1    wreg      void 
-   784 ;; Registers used:
-   785 ;;		wreg, status,2, status,0, pclath, cstack
-   786 ;; Tracked objects:
-   787 ;;		On entry : 0/0
-   788 ;;		On exit  : 0/0
-   789 ;;		Unchanged: 0/0
-   790 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-   791 ;;      Params:         1       0       0       0
-   792 ;;      Locals:         0       3       0       0
-   793 ;;      Temps:          3       0       0       0
-   794 ;;      Totals:         4       3       0       0
-   795 ;;Total ram usage:        7 bytes
-   796 ;; Hardware stack levels used:    1
-   797 ;; Hardware stack levels required when called:    1
-   798 ;; This function calls:
-   799 ;;		___awdiv
-   800 ;; This function is called by:
-   801 ;;		_main
-   802 ;; This function uses a non-reentrant model
-   803 ;;
-   804                           
-   805                           
-   806                           ;psect for function _lights
-   807  0768                     _lights:	
-   808                           
-   809                           ;incstack = 0
-   810                           ; Regs used in _lights: [wreg+status,2+status,0+pclath+cstack]
-   811                           ;lights@height stored from wreg
-   812  0768  0020               	movlb	0	; select bank0
-   813  0769  00B6               	movwf	lights@height
-   814                           
-   815                           ;RAINBO-LPF.c: 42: if (height > 127) {
-   816  076A  3080               	movlw	128
-   817  076B  0236               	subwf	lights@height,w
-   818  076C  1C03               	skipc
-   819  076D  2F8B               	goto	l808
-   820                           
-   821                           ;RAINBO-LPF.c: 43: if (height < 249) {
-   822  076E  30F9               	movlw	249
-   823  076F  0236               	subwf	lights@height,w
-   824  0770  1803               	skipnc
-   825  0771  2F86               	goto	l806
-   826                           
-   827                           ;RAINBO-LPF.c: 44: height = (height / 4) - 32;
-   828  0772  3004               	movlw	4
-   829  0773  00F0               	movwf	___awdiv@divisor
-   830  0774  3000               	movlw	0
-   831  0775  00F1               	movwf	___awdiv@divisor+1
-   832  0776  0836               	movf	lights@height,w
-   833  0777  00FA               	movwf	??_lights
-   834  0778  01FB               	clrf	??_lights+1
-   835  0779  087A               	movf	??_lights,w
-   836  077A  00F2               	movwf	___awdiv@dividend
-   837  077B  087B               	movf	??_lights+1,w
-   838  077C  00F3               	movwf	___awdiv@dividend+1
-   839  077D  3186  26B9  3187   	fcall	___awdiv
-   840  0780  0870               	movf	?___awdiv,w
-   841  0781  3EE0               	addlw	224
-   842  0782  00FC               	movwf	??_lights+2
-   843  0783  087C               	movf	??_lights+2,w
-   844  0784  0020               	movlb	0	; select bank0
-   845  0785  2F89               	goto	L1
-   846  0786                     l806:	
-   847                           ;RAINBO-LPF.c: 45: } else {
-   848                           
-   849                           
-   850                           ;RAINBO-LPF.c: 46: height = 30;
-   851  0786  301E               	movlw	30
-   852  0787  00FA               	movwf	??_lights
-   853  0788  087A               	movf	??_lights,w
-   854  0789                     L1:	
-   855  0789  00B6               	movwf	lights@height
-   856                           
-   857                           ;RAINBO-LPF.c: 47: }
-   858                           ;RAINBO-LPF.c: 48: } else {
-   859  078A  2F8C               	goto	l810
-   860  078B                     l808:	
-   861                           
-   862                           ;RAINBO-LPF.c: 49: height = 0;
-   863  078B  01B6               	clrf	lights@height
-   864  078C                     l810:	
-   865  078C  0879               	movf	lights@leds,w
-   866  078D  1903               	btfsc	3,2
-   867  078E  0008               	return
-   868                           
-   869                           ;RAINBO-LPF.c: 53: temp = (leds < height) ? green : 0;
-   870  078F  0020               	movlb	0	; select bank0
-   871  0790  0836               	movf	lights@height,w
-   872  0791  0279               	subwf	lights@leds,w
-   873  0792  1C03               	skipc
-   874  0793  2F97               	goto	l818
-   875  0794  01B4               	clrf	_lights$61
-   876  0795  01B5               	clrf	_lights$61+1
-   877  0796  2F9E               	goto	l86
-   878  0797                     l818:	
-   879  0797  082A               	movf	_green,w
-   880  0798  00FA               	movwf	??_lights
-   881  0799  01FB               	clrf	??_lights+1
-   882  079A  087A               	movf	??_lights,w
-   883  079B  00B4               	movwf	_lights$61
-   884  079C  087B               	movf	??_lights+1,w
-   885  079D  00B5               	movwf	_lights$61+1
-   886  079E                     l86:	
-   887  079E  0834               	movf	_lights$61,w
-   888  079F  00FA               	movwf	??_lights
-   889  07A0  087A               	movf	??_lights,w
-   890  07A1  00AB               	movwf	_temp
-   891                           
-   892                           ;RAINBO-LPF.c: 54: for (i = 8; i != 0; i--) {
-   893  07A2  3008               	movlw	8
-   894  07A3  00FA               	movwf	??_lights
-   895  07A4  087A               	movf	??_lights,w
-   896  07A5  00FD               	movwf	_i
-   897  07A6  087D               	movf	_i,w
-   898  07A7  1903               	btfsc	3,2
-   899  07A8  2FB5               	goto	l826
-   900  07A9                     l87:	
-   901  07A9  160C               	bsf	268,4	;# 
-   902  07AA  0000               	nop	;# 
-   903  07AB  1FAB               	btfss	_temp,7	;# 
-   904  07AC  120C               	bcf	268,4	;# 
-   905  07AD  0000               	nop	;# 
-   906  07AE  35AB               	lslf	_temp,f	;# 
-   907  07AF  120C               	bcf	268,4	;# 
-   908  07B0  3001               	movlw	1
-   909  07B1  02FD               	subwf	_i,f
-   910  07B2  087D               	movf	_i,w
-   911  07B3  1D03               	btfss	3,2
-   912  07B4  2FA9               	goto	l87
-   913  07B5                     l826:	
-   914                           
-   915                           ;RAINBO-LPF.c: 62: }
-   916                           ;RAINBO-LPF.c: 63: temp = red;
-   917  07B5  0020               	movlb	0	; select bank0
-   918  07B6  0830               	movf	_red,w
-   919  07B7  00FA               	movwf	??_lights
-   920  07B8  087A               	movf	??_lights,w
-   921  07B9  00AB               	movwf	_temp
-   922                           
-   923                           ;RAINBO-LPF.c: 64: for (i = 8; i != 0; i--) {
-   924  07BA  3008               	movlw	8
-   925  07BB  00FA               	movwf	??_lights
-   926  07BC  087A               	movf	??_lights,w
-   927  07BD  00FD               	movwf	_i
-   928  07BE  087D               	movf	_i,w
-   929  07BF  1903               	btfsc	3,2
-   930  07C0  2FCD               	goto	l834
-   931  07C1                     l89:	
-   932  07C1  160C               	bsf	268,4	;# 
-   933  07C2  0000               	nop	;# 
-   934  07C3  1FAB               	btfss	_temp,7	;# 
-   935  07C4  120C               	bcf	268,4	;# 
-   936  07C5  0000               	nop	;# 
-   937  07C6  35AB               	lslf	_temp,f	;# 
-   938  07C7  120C               	bcf	268,4	;# 
-   939  07C8  3001               	movlw	1
-   940  07C9  02FD               	subwf	_i,f
-   941  07CA  087D               	movf	_i,w
-   942  07CB  1D03               	btfss	3,2
-   943  07CC  2FC1               	goto	l89
-   944  07CD                     l834:	
-   945                           
-   946                           ;RAINBO-LPF.c: 72: }
-   947                           ;RAINBO-LPF.c: 73: temp = blue;
-   948  07CD  0020               	movlb	0	; select bank0
-   949  07CE  082F               	movf	_blue,w
-   950  07CF  00FA               	movwf	??_lights
-   951  07D0  087A               	movf	??_lights,w
-   952  07D1  00AB               	movwf	_temp
-   953                           
-   954                           ;RAINBO-LPF.c: 74: for (i = 8; i != 0; i--) {
-   955  07D2  3008               	movlw	8
-   956  07D3  00FA               	movwf	??_lights
-   957  07D4  087A               	movf	??_lights,w
-   958  07D5  00FD               	movwf	_i
-   959  07D6  087D               	movf	_i,w
-   960  07D7  1903               	btfsc	3,2
-   961  07D8  2FE5               	goto	l842
-   962  07D9                     l91:	
-   963  07D9  160C               	bsf	268,4	;# 
-   964  07DA  0000               	nop	;# 
-   965  07DB  1FAB               	btfss	_temp,7	;# 
-   966  07DC  120C               	bcf	268,4	;# 
-   967  07DD  0000               	nop	;# 
-   968  07DE  35AB               	lslf	_temp,f	;# 
-   969  07DF  120C               	bcf	268,4	;# 
-   970  07E0  3001               	movlw	1
-   971  07E1  02FD               	subwf	_i,f
-   972  07E2  087D               	movf	_i,w
-   973  07E3  1D03               	btfss	3,2
-   974  07E4  2FD9               	goto	l91
-   975  07E5                     l842:	
-   976  07E5  3001               	movlw	1
-   977  07E6  02F9               	subwf	lights@leds,f
-   978  07E7  2F8C               	goto	l810
-   979  07E8                     __end_of_lights:	
-   980                           
-   981                           	psect	text2
-   982  06B9                     __ptext2:	
-   983 ;; *************** function ___awdiv *****************
-   984 ;; Defined at:
-   985 ;;		line 6 in file "C:\Program Files\Microchip\xc8\v1.44\sources\common\awdiv.c"
-   986 ;; Parameters:    Size  Location     Type
-   987 ;;  divisor         2    0[COMMON] int 
-   988 ;;  dividend        2    2[COMMON] int 
-   989 ;; Auto vars:     Size  Location     Type
-   990 ;;  quotient        2    7[COMMON] int 
-   991 ;;  sign            1    6[COMMON] unsigned char 
-   992 ;;  counter         1    5[COMMON] unsigned char 
-   993 ;; Return value:  Size  Location     Type
-   994 ;;                  2    0[COMMON] int 
-   995 ;; Registers used:
-   996 ;;		wreg, status,2, status,0
-   997 ;; Tracked objects:
-   998 ;;		On entry : 0/0
-   999 ;;		On exit  : 0/0
-  1000 ;;		Unchanged: 0/0
-  1001 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1002 ;;      Params:         4       0       0       0
-  1003 ;;      Locals:         4       0       0       0
-  1004 ;;      Temps:          1       0       0       0
-  1005 ;;      Totals:         9       0       0       0
-  1006 ;;Total ram usage:        9 bytes
-  1007 ;; Hardware stack levels used:    1
-  1008 ;; This function calls:
-  1009 ;;		Nothing
-  1010 ;; This function is called by:
-  1011 ;;		_lights
-  1012 ;; This function uses a non-reentrant model
-  1013 ;;
-  1014                           
-  1015                           
-  1016                           ;psect for function ___awdiv
-  1017  06B9                     ___awdiv:	
-  1018                           
-  1019                           ;incstack = 0
-  1020                           ; Regs used in ___awdiv: [wreg+status,2+status,0]
-  1021  06B9  01F6               	clrf	___awdiv@sign
-  1022  06BA  1FF1               	btfss	___awdiv@divisor+1,7
-  1023  06BB  2EC3               	goto	l730
-  1024  06BC  09F0               	comf	___awdiv@divisor,f
-  1025  06BD  09F1               	comf	___awdiv@divisor+1,f
-  1026  06BE  0AF0               	incf	___awdiv@divisor,f
-  1027  06BF  1903               	skipnz
-  1028  06C0  0AF1               	incf	___awdiv@divisor+1,f
-  1029  06C1  01F6               	clrf	___awdiv@sign
-  1030  06C2  0AF6               	incf	___awdiv@sign,f
-  1031  06C3                     l730:	
-  1032  06C3  1FF3               	btfss	___awdiv@dividend+1,7
-  1033  06C4  2ECE               	goto	l736
-  1034  06C5  09F2               	comf	___awdiv@dividend,f
-  1035  06C6  09F3               	comf	___awdiv@dividend+1,f
-  1036  06C7  0AF2               	incf	___awdiv@dividend,f
-  1037  06C8  1903               	skipnz
-  1038  06C9  0AF3               	incf	___awdiv@dividend+1,f
-  1039  06CA  3001               	movlw	1
-  1040  06CB  00F4               	movwf	??___awdiv
-  1041  06CC  0874               	movf	??___awdiv,w
-  1042  06CD  06F6               	xorwf	___awdiv@sign,f
-  1043  06CE                     l736:	
-  1044  06CE  01F7               	clrf	___awdiv@quotient
-  1045  06CF  01F8               	clrf	___awdiv@quotient+1
-  1046  06D0  0870               	movf	___awdiv@divisor,w
-  1047  06D1  0471               	iorwf	___awdiv@divisor+1,w
-  1048  06D2  1903               	btfsc	3,2
-  1049  06D3  2EFD               	goto	l758
-  1050  06D4  01F5               	clrf	___awdiv@counter
-  1051  06D5  0AF5               	incf	___awdiv@counter,f
-  1052  06D6                     l746:	
-  1053  06D6  1BF1               	btfsc	___awdiv@divisor+1,7
-  1054  06D7  2EE2               	goto	l748
-  1055  06D8  3001               	movlw	1
-  1056  06D9                     u315:	
-  1057  06D9  35F0               	lslf	___awdiv@divisor,f
-  1058  06DA  0DF1               	rlf	___awdiv@divisor+1,f
-  1059  06DB  0B89               	decfsz	9,f
-  1060  06DC  2ED9               	goto	u315
-  1061  06DD  3001               	movlw	1
-  1062  06DE  00F4               	movwf	??___awdiv
-  1063  06DF  0874               	movf	??___awdiv,w
-  1064  06E0  07F5               	addwf	___awdiv@counter,f
-  1065  06E1  2ED6               	goto	l746
-  1066  06E2                     l748:	
-  1067  06E2  3001               	movlw	1
-  1068  06E3                     u335:	
-  1069  06E3  35F7               	lslf	___awdiv@quotient,f
-  1070  06E4  0DF8               	rlf	___awdiv@quotient+1,f
-  1071  06E5  0B89               	decfsz	9,f
-  1072  06E6  2EE3               	goto	u335
-  1073  06E7  0871               	movf	___awdiv@divisor+1,w
-  1074  06E8  0273               	subwf	___awdiv@dividend+1,w
-  1075  06E9  1D03               	skipz
-  1076  06EA  2EED               	goto	u345
-  1077  06EB  0870               	movf	___awdiv@divisor,w
-  1078  06EC  0272               	subwf	___awdiv@dividend,w
-  1079  06ED                     u345:	
-  1080  06ED  1C03               	skipc
-  1081  06EE  2EF4               	goto	l754
-  1082  06EF  0870               	movf	___awdiv@divisor,w
-  1083  06F0  02F2               	subwf	___awdiv@dividend,f
-  1084  06F1  0871               	movf	___awdiv@divisor+1,w
-  1085  06F2  3BF3               	subwfb	___awdiv@dividend+1,f
-  1086  06F3  1477               	bsf	___awdiv@quotient,0
-  1087  06F4                     l754:	
-  1088  06F4  3001               	movlw	1
-  1089  06F5                     u355:	
-  1090  06F5  36F1               	lsrf	___awdiv@divisor+1,f
-  1091  06F6  0CF0               	rrf	___awdiv@divisor,f
-  1092  06F7  0B89               	decfsz	9,f
-  1093  06F8  2EF5               	goto	u355
-  1094  06F9  3001               	movlw	1
-  1095  06FA  02F5               	subwf	___awdiv@counter,f
-  1096  06FB  1D03               	btfss	3,2
-  1097  06FC  2EE2               	goto	l748
-  1098  06FD                     l758:	
-  1099  06FD  0876               	movf	___awdiv@sign,w
-  1100  06FE  1903               	btfsc	3,2
-  1101  06FF  2F05               	goto	l762
-  1102  0700  09F7               	comf	___awdiv@quotient,f
-  1103  0701  09F8               	comf	___awdiv@quotient+1,f
-  1104  0702  0AF7               	incf	___awdiv@quotient,f
-  1105  0703  1903               	skipnz
-  1106  0704  0AF8               	incf	___awdiv@quotient+1,f
-  1107  0705                     l762:	
-  1108  0705  0878               	movf	___awdiv@quotient+1,w
-  1109  0706  00F1               	movwf	?___awdiv+1
-  1110  0707  0877               	movf	___awdiv@quotient,w
-  1111  0708  00F0               	movwf	?___awdiv
-  1112  0709  0008               	return
-  1113  070A                     __end_of___awdiv:	
-  1114                           
-  1115                           	psect	text3
-  1116  069D                     __ptext3:	
-  1117 ;; *************** function _init *****************
-  1118 ;; Defined at:
-  1119 ;;		line 12 in file "RAINBO.c"
-  1120 ;; Parameters:    Size  Location     Type
-  1121 ;;		None
-  1122 ;; Auto vars:     Size  Location     Type
-  1123 ;;		None
-  1124 ;; Return value:  Size  Location     Type
-  1125 ;;                  1    wreg      void 
-  1126 ;; Registers used:
-  1127 ;;		wreg, status,2
-  1128 ;; Tracked objects:
-  1129 ;;		On entry : 0/0
-  1130 ;;		On exit  : 0/0
-  1131 ;;		Unchanged: 0/0
-  1132 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1133 ;;      Params:         0       0       0       0
-  1134 ;;      Locals:         0       0       0       0
-  1135 ;;      Temps:          0       0       0       0
-  1136 ;;      Totals:         0       0       0       0
-  1137 ;;Total ram usage:        0 bytes
-  1138 ;; Hardware stack levels used:    1
-  1139 ;; This function calls:
-  1140 ;;		Nothing
-  1141 ;; This function is called by:
-  1142 ;;		_main
-  1143 ;; This function uses a non-reentrant model
-  1144 ;;
-  1145                           
-  1146                           
-  1147                           ;psect for function _init
-  1148  069D                     _init:	
-  1149                           
-  1150                           ;RAINBO.c: 16: OSCCON = 0b11110000;
-  1151                           
-  1152                           ;incstack = 0
-  1153                           ; Regs used in _init: [wreg+status,2]
-  1154  069D  30F0               	movlw	240
-  1155  069E  0021               	movlb	1	; select bank1
-  1156  069F  0099               	movwf	25	;volatile
-  1157  06A0                     l27:	
-  1158                           ;RAINBO.c: 17: while(!PLLR);
-  1159                           
-  1160  06A0  1F1A               	btfss	26,6	;volatile
-  1161  06A1  2EA0               	goto	l27
-  1162                           
-  1163                           ;RAINBO.c: 21: OPTION_REG = 0b00010000;
-  1164  06A2  3010               	movlw	16
-  1165  06A3  0095               	movwf	21	;volatile
-  1166                           
-  1167                           ;RAINBO.c: 23: PORTA = 0;
-  1168  06A4  0020               	movlb	0	; select bank0
-  1169  06A5  018C               	clrf	12	;volatile
-  1170                           
-  1171                           ;RAINBO.c: 24: LATA = 0;
-  1172  06A6  0022               	movlb	2	; select bank2
-  1173  06A7  018C               	clrf	12	;volatile
-  1174                           
-  1175                           ;RAINBO.c: 25: ANSELA = 0b00000011;
-  1176  06A8  3003               	movlw	3
-  1177  06A9  0023               	movlb	3	; select bank3
-  1178  06AA  008C               	movwf	12	;volatile
-  1179                           
-  1180                           ;RAINBO.c: 26: ADCON0 = 0b00000000;
-  1181  06AB  0021               	movlb	1	; select bank1
-  1182  06AC  019D               	clrf	29	;volatile
-  1183                           
-  1184                           ;RAINBO.c: 27: ADCON1 = 0b01100000;
-  1185  06AD  3060               	movlw	96
-  1186  06AE  009E               	movwf	30	;volatile
-  1187                           
-  1188                           ;RAINBO.c: 28: TRISA = 0b00001111;
-  1189  06AF  300F               	movlw	15
-  1190  06B0  008C               	movwf	12	;volatile
-  1191                           
-  1192                           ;RAINBO.c: 29: WPUA = 0b00001000;
-  1193  06B1  3008               	movlw	8
-  1194  06B2  0024               	movlb	4	; select bank4
-  1195  06B3  008C               	movwf	12	;volatile
-  1196                           
-  1197                           ;RAINBO.c: 31: WDTCON = 0b00001010;
-  1198  06B4  300A               	movlw	10
-  1199  06B5  0021               	movlb	1	; select bank1
-  1200  06B6  0097               	movwf	23	;volatile
-  1201                           
-  1202                           ;RAINBO.c: 35: INTCON = 0;
-  1203  06B7  018B               	clrf	11	;volatile
-  1204  06B8  0008               	return
-  1205  06B9                     __end_of_init:	
-  1206                           
-  1207                           	psect	text4
-  1208  0689                     __ptext4:	
-  1209 ;; *************** function _adConvert *****************
-  1210 ;; Defined at:
-  1211 ;;		line 28 in file "RAINBO-LPF.c"
-  1212 ;; Parameters:    Size  Location     Type
-  1213 ;;  chan            1    wreg     unsigned char 
-  1214 ;; Auto vars:     Size  Location     Type
-  1215 ;;  chan            1    0[COMMON] unsigned char 
-  1216 ;; Return value:  Size  Location     Type
-  1217 ;;                  1    wreg      unsigned char 
-  1218 ;; Registers used:
-  1219 ;;		wreg, status,2, status,0
-  1220 ;; Tracked objects:
-  1221 ;;		On entry : 0/0
-  1222 ;;		On exit  : 0/0
-  1223 ;;		Unchanged: 0/0
-  1224 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1225 ;;      Params:         0       0       0       0
-  1226 ;;      Locals:         1       0       0       0
-  1227 ;;      Temps:          0       0       0       0
-  1228 ;;      Totals:         1       0       0       0
-  1229 ;;Total ram usage:        1 bytes
-  1230 ;; Hardware stack levels used:    1
-  1231 ;; This function calls:
-  1232 ;;		Nothing
-  1233 ;; This function is called by:
-  1234 ;;		_main
-  1235 ;; This function uses a non-reentrant model
-  1236 ;;
-  1237                           
-  1238                           
-  1239                           ;psect for function _adConvert
-  1240  0689                     _adConvert:	
-  1241                           
-  1242                           ;incstack = 0
-  1243                           ; Regs used in _adConvert: [wreg+status,2+status,0]
-  1244                           ;adConvert@chan stored from wreg
-  1245  0689  00F0               	movwf	adConvert@chan
-  1246                           
-  1247                           ;RAINBO-LPF.c: 29: ADON = 1;
-  1248  068A  0021               	movlb	1	; select bank1
-  1249  068B  141D               	bsf	29,0	;volatile
-  1250                           
-  1251                           ;RAINBO-LPF.c: 30: ADCON0 = (ADCON0 & 0b10000011);
-  1252  068C  081D               	movf	29,w	;volatile
-  1253  068D  3983               	andlw	131
-  1254  068E  009D               	movwf	29	;volatile
-  1255                           
-  1256                           ;RAINBO-LPF.c: 31: ADCON0 = (ADCON0 | chan);
-  1257  068F  081D               	movf	29,w	;volatile
-  1258  0690  0470               	iorwf	adConvert@chan,w
-  1259  0691  009D               	movwf	29	;volatile
-  1260                           
-  1261                           ;RAINBO-LPF.c: 32: _delay((unsigned long)((2)*(32000000/4000000.0)));
-  1262  0692  3005               	movlw	5
-  1263  0693                     u577:	
-  1264  0693  0B89               	decfsz	9,f
-  1265  0694  2E93               	goto	u577
-  1266  0695  0000               	nop
-  1267                           
-  1268                           ;RAINBO-LPF.c: 34: GO = 1;
-  1269  0696  0021               	movlb	1	; select bank1
-  1270  0697  149D               	bsf	29,1	;volatile
-  1271  0698                     l71:	
-  1272                           ;RAINBO-LPF.c: 35: while (GO);
-  1273                           
-  1274  0698  189D               	btfsc	29,1	;volatile
-  1275  0699  2E98               	goto	l71
-  1276                           
-  1277                           ;RAINBO-LPF.c: 37: ADON = 0;
-  1278  069A  101D               	bcf	29,0	;volatile
-  1279                           
-  1280                           ;RAINBO-LPF.c: 38: return (ADRESH);
-  1281  069B  081C               	movf	28,w	;volatile
-  1282  069C  0008               	return
-  1283  069D                     __end_of_adConvert:	
-  1284  007E                     btemp	set	126	;btemp
-  1285  007E                     wtemp0	set	126
+   666                           ;incstack = 0
+   667                           ; Regs used in _main: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+   668  0713  3186  2626  3187   	fcall	_init
+   669                           
+   670                           ;RAINBO-LPF.c: 93: _delay((unsigned long)((200)*(32000000/4000000.0)));
+   671  0716  30E4               	movlw	228
+   672  0717                     u637:	
+   673  0717  3200               	nop2
+   674  0718  3200               	nop2
+   675  0719  0B89               	decfsz	9,f
+   676  071A  2F17               	goto	u637
+   677  071B  3200               	nop2
+   678  071C  3200               	nop2
+   679  071D                     l891:	
+   680                           ;RAINBO-LPF.c: 96: while (1) {
+   681                           
+   682                           
+   683                           ;RAINBO-LPF.c: 97: max1 = 0;
+   684  071D  0020               	movlb	0	; select bank0
+   685  071E  01B7               	clrf	_max1
+   686                           
+   687                           ;RAINBO-LPF.c: 98: max2 = 0;
+   688  071F  01B6               	clrf	_max2
+   689                           
+   690                           ;RAINBO-LPF.c: 99: max3 = 0;
+   691  0720  01B5               	clrf	_max3
+   692                           
+   693                           ;RAINBO-LPF.c: 100: max4 = 0;
+   694  0721  01B4               	clrf	_max4
+   695                           
+   696                           ;RAINBO-LPF.c: 101: tempIN = adConvert(0b00000100);
+   697  0722  3004               	movlw	4
+   698  0723  3186  2612  3187   	fcall	_adConvert
+   699  0726  0020               	movlb	0	; select bank0
+   700  0727  00A3               	movwf	??_main
+   701  0728  0823               	movf	??_main,w
+   702  0729  00B8               	movwf	_tempIN
+   703                           
+   704                           ;RAINBO-LPF.c: 102: if (tempIN > 127) {
+   705  072A  3080               	movlw	128
+   706  072B  0238               	subwf	_tempIN,w
+   707  072C  1C03               	skipc
+   708  072D  2F48               	goto	l911
+   709                           
+   710                           ;RAINBO-LPF.c: 103: LPFInput[lastVal] = tempIN;
+   711  072E  0838               	movf	_tempIN,w
+   712  072F  00A3               	movwf	??_main
+   713  0730  083A               	movf	_lastVal,w
+   714  0731  3E3B               	addlw	(low (_LPFInput| 0))& (0+255)
+   715  0732  0086               	movwf	6
+   716  0733  0187               	clrf	7
+   717  0734  0823               	movf	??_main,w
+   718  0735  0081               	movwf	1
+   719                           
+   720                           ;RAINBO-LPF.c: 104: lastVal = (lastVal == 9) ? 0 : lastVal + 1;
+   721  0736  3009               	movlw	9
+   722  0737  063A               	xorwf	_lastVal,w
+   723  0738  1903               	btfsc	3,2
+   724  0739  2F42               	goto	l907
+   725  073A  083A               	movf	_lastVal,w
+   726  073B  3E01               	addlw	1
+   727  073C  00AC               	movwf	_main$75
+   728  073D  3000               	movlw	0
+   729  073E  1803               	skipnc
+   730  073F  3001               	movlw	1
+   731  0740  00AD               	movwf	_main$75+1
+   732  0741  2F44               	goto	l909
+   733  0742                     l907:	
+   734  0742  01AC               	clrf	_main$75
+   735  0743  01AD               	clrf	_main$75+1
+   736  0744                     l909:	
+   737  0744  082C               	movf	_main$75,w
+   738  0745  00A3               	movwf	??_main
+   739  0746  0823               	movf	??_main,w
+   740  0747  00BA               	movwf	_lastVal
+   741  0748                     l911:	
+   742                           
+   743                           ;RAINBO-LPF.c: 105: }
+   744                           ;RAINBO-LPF.c: 106: for(i = 0; i < 10; i++){
+   745  0748  01FD               	clrf	_i
+   746  0749  300A               	movlw	10
+   747  074A  027D               	subwf	_i,w
+   748  074B  1803               	btfsc	3,0
+   749  074C  2FAD               	goto	l941
+   750  074D                     l915:	
+   751                           
+   752                           ;RAINBO-LPF.c: 107: if(LPFInput[i] > max1){
+   753  074D  087D               	movf	_i,w
+   754  074E  3E3B               	addlw	(low (_LPFInput| 0))& (0+255)
+   755  074F  0086               	movwf	6
+   756  0750  0187               	clrf	7
+   757  0751  0801               	movf	1,w
+   758  0752  0237               	subwf	_max1,w
+   759  0753  1803               	skipnc
+   760  0754  2F69               	goto	l921
+   761                           
+   762                           ;RAINBO-LPF.c: 108: max4 = max3;
+   763  0755  0835               	movf	_max3,w
+   764  0756  00A3               	movwf	??_main
+   765  0757  0823               	movf	??_main,w
+   766  0758  00B4               	movwf	_max4
+   767                           
+   768                           ;RAINBO-LPF.c: 109: max3 = max2;
+   769  0759  0836               	movf	_max2,w
+   770  075A  00A3               	movwf	??_main
+   771  075B  0823               	movf	??_main,w
+   772  075C  00B5               	movwf	_max3
+   773                           
+   774                           ;RAINBO-LPF.c: 110: max2 = max1;
+   775  075D  0837               	movf	_max1,w
+   776  075E  00A3               	movwf	??_main
+   777  075F  0823               	movf	??_main,w
+   778  0760  00B6               	movwf	_max2
+   779                           
+   780                           ;RAINBO-LPF.c: 111: max1 = LPFInput[i];
+   781  0761  087D               	movf	_i,w
+   782  0762  3E3B               	addlw	(low (_LPFInput| 0))& (0+255)
+   783  0763  0086               	movwf	6
+   784  0764  0187               	clrf	7
+   785  0765  0801               	movf	1,w
+   786  0766  00A3               	movwf	??_main
+   787  0767  0823               	movf	??_main,w
+   788  0768  00B7               	movwf	_max1
+   789  0769                     l921:	
+   790                           
+   791                           ;RAINBO-LPF.c: 112: }
+   792                           ;RAINBO-LPF.c: 113: if(LPFInput[i] > max2){
+   793  0769  087D               	movf	_i,w
+   794  076A  3E3B               	addlw	(low (_LPFInput| 0))& (0+255)
+   795  076B  0086               	movwf	6
+   796  076C  0187               	clrf	7
+   797  076D  0801               	movf	1,w
+   798  076E  0236               	subwf	_max2,w
+   799  076F  1803               	skipnc
+   800  0770  2F81               	goto	l927
+   801                           
+   802                           ;RAINBO-LPF.c: 114: max4 = max3;
+   803  0771  0835               	movf	_max3,w
+   804  0772  00A3               	movwf	??_main
+   805  0773  0823               	movf	??_main,w
+   806  0774  00B4               	movwf	_max4
+   807                           
+   808                           ;RAINBO-LPF.c: 115: max3 = max2;
+   809  0775  0836               	movf	_max2,w
+   810  0776  00A3               	movwf	??_main
+   811  0777  0823               	movf	??_main,w
+   812  0778  00B5               	movwf	_max3
+   813                           
+   814                           ;RAINBO-LPF.c: 116: max2 = LPFInput[i];
+   815  0779  087D               	movf	_i,w
+   816  077A  3E3B               	addlw	(low (_LPFInput| 0))& (0+255)
+   817  077B  0086               	movwf	6
+   818  077C  0187               	clrf	7
+   819  077D  0801               	movf	1,w
+   820  077E  00A3               	movwf	??_main
+   821  077F  0823               	movf	??_main,w
+   822  0780  00B6               	movwf	_max2
+   823  0781                     l927:	
+   824                           
+   825                           ;RAINBO-LPF.c: 117: }
+   826                           ;RAINBO-LPF.c: 118: if(LPFInput[i] > max3){
+   827  0781  087D               	movf	_i,w
+   828  0782  3E3B               	addlw	(low (_LPFInput| 0))& (0+255)
+   829  0783  0086               	movwf	6
+   830  0784  0187               	clrf	7
+   831  0785  0801               	movf	1,w
+   832  0786  0235               	subwf	_max3,w
+   833  0787  1803               	skipnc
+   834  0788  2F95               	goto	l933
+   835                           
+   836                           ;RAINBO-LPF.c: 119: max4 = max3;
+   837  0789  0835               	movf	_max3,w
+   838  078A  00A3               	movwf	??_main
+   839  078B  0823               	movf	??_main,w
+   840  078C  00B4               	movwf	_max4
+   841                           
+   842                           ;RAINBO-LPF.c: 120: max3 = LPFInput[i];
+   843  078D  087D               	movf	_i,w
+   844  078E  3E3B               	addlw	(low (_LPFInput| 0))& (0+255)
+   845  078F  0086               	movwf	6
+   846  0790  0187               	clrf	7
+   847  0791  0801               	movf	1,w
+   848  0792  00A3               	movwf	??_main
+   849  0793  0823               	movf	??_main,w
+   850  0794  00B5               	movwf	_max3
+   851  0795                     l933:	
+   852                           
+   853                           ;RAINBO-LPF.c: 121: }
+   854                           ;RAINBO-LPF.c: 122: if(LPFInput[i] > max4){
+   855  0795  087D               	movf	_i,w
+   856  0796  3E3B               	addlw	(low (_LPFInput| 0))& (0+255)
+   857  0797  0086               	movwf	6
+   858  0798  0187               	clrf	7
+   859  0799  0801               	movf	1,w
+   860  079A  0234               	subwf	_max4,w
+   861  079B  1803               	skipnc
+   862  079C  2FA5               	goto	l937
+   863                           
+   864                           ;RAINBO-LPF.c: 123: max4 = LPFInput[i];
+   865  079D  087D               	movf	_i,w
+   866  079E  3E3B               	addlw	(low (_LPFInput| 0))& (0+255)
+   867  079F  0086               	movwf	6
+   868  07A0  0187               	clrf	7
+   869  07A1  0801               	movf	1,w
+   870  07A2  00A3               	movwf	??_main
+   871  07A3  0823               	movf	??_main,w
+   872  07A4  00B4               	movwf	_max4
+   873  07A5                     l937:	
+   874  07A5  3001               	movlw	1
+   875  07A6  00A3               	movwf	??_main
+   876  07A7  0823               	movf	??_main,w
+   877  07A8  07FD               	addwf	_i,f
+   878  07A9  300A               	movlw	10
+   879  07AA  027D               	subwf	_i,w
+   880  07AB  1C03               	skipc
+   881  07AC  2F4D               	goto	l915
+   882  07AD                     l941:	
+   883                           
+   884                           ;RAINBO-LPF.c: 124: }
+   885                           ;RAINBO-LPF.c: 125: }
+   886                           ;RAINBO-LPF.c: 126: LPFAvg = (max1 + max2 + max3 + max4) / 4;
+   887  07AD  3004               	movlw	4
+   888  07AE  00F0               	movwf	___awdiv@divisor
+   889  07AF  3000               	movlw	0
+   890  07B0  00F1               	movwf	___awdiv@divisor+1
+   891  07B1  0834               	movf	_max4,w
+   892  07B2  00A3               	movwf	??_main
+   893  07B3  01A4               	clrf	??_main+1
+   894  07B4  0835               	movf	_max3,w
+   895  07B5  00A5               	movwf	??_main+2
+   896  07B6  01A6               	clrf	??_main+3
+   897  07B7  0837               	movf	_max1,w
+   898  07B8  0736               	addwf	_max2,w
+   899  07B9  00A7               	movwf	??_main+4
+   900  07BA  01A8               	clrf	??_main+5
+   901  07BB  0DA8               	rlf	??_main+5,f
+   902  07BC  0825               	movf	??_main+2,w
+   903  07BD  0727               	addwf	??_main+4,w
+   904  07BE  00A9               	movwf	??_main+6
+   905  07BF  0826               	movf	??_main+3,w
+   906  07C0  3D28               	addwfc	??_main+5,w
+   907  07C1  00AA               	movwf	??_main+7
+   908  07C2  0823               	movf	??_main,w
+   909  07C3  0729               	addwf	??_main+6,w
+   910  07C4  00F2               	movwf	___awdiv@dividend
+   911  07C5  0824               	movf	??_main+1,w
+   912  07C6  3D2A               	addwfc	??_main+7,w
+   913  07C7  00F3               	movwf	___awdiv@dividend+1
+   914  07C8  3186  2642  3187   	fcall	___awdiv
+   915  07CB  0870               	movf	?___awdiv,w
+   916  07CC  0020               	movlb	0	; select bank0
+   917  07CD  00AB               	movwf	??_main+8
+   918  07CE  082B               	movf	??_main+8,w
+   919  07CF  00B9               	movwf	_LPFAvg
+   920                           
+   921                           ;RAINBO-LPF.c: 127: lights(LPFAvg, maxLEDs);
+   922  07D0  3000               	movlw	low (_maxLEDs| (0+32768))
+   923  07D1  0084               	movwf	4
+   924  07D2  3088               	movlw	high (_maxLEDs| (0+32768))
+   925  07D3  0085               	movwf	5
+   926  07D4  0800               	movf	0,w	;code access
+   927  07D5  00A3               	movwf	??_main
+   928  07D6  0823               	movf	??_main,w
+   929  07D7  00F9               	movwf	lights@leds
+   930  07D8  0839               	movf	_LPFAvg,w
+   931  07D9  3186  2693  3187   	fcall	_lights
+   932                           
+   933                           ;RAINBO-LPF.c: 128: _delay((unsigned long)((50)*(32000000/4000.0)));
+   934  07DC  3003               	movlw	3
+   935  07DD  0020               	movlb	0	; select bank0
+   936  07DE  00A4               	movwf	??_main+1
+   937  07DF  3008               	movlw	8
+   938  07E0  00A3               	movwf	??_main
+   939  07E1  3077               	movlw	119
+   940  07E2                     u647:	
+   941  07E2  0B89               	decfsz	9,f
+   942  07E3  2FE2               	goto	u647
+   943  07E4  0BA3               	decfsz	??_main,f
+   944  07E5  2FE2               	goto	u647
+   945  07E6  0BA4               	decfsz	??_main+1,f
+   946  07E7  2FE2               	goto	u647
+   947  07E8  2F1D               	goto	l891
+   948  07E9                     __end_of_main:	
+   949                           
+   950                           	psect	text1
+   951  0693                     __ptext1:	
+   952 ;; *************** function _lights *****************
+   953 ;; Defined at:
+   954 ;;		line 42 in file "RAINBO-LPF.c"
+   955 ;; Parameters:    Size  Location     Type
+   956 ;;  height          1    wreg     unsigned char 
+   957 ;;  leds            1    9[COMMON] unsigned char 
+   958 ;; Auto vars:     Size  Location     Type
+   959 ;;  height          1    2[BANK0 ] unsigned char 
+   960 ;; Return value:  Size  Location     Type
+   961 ;;                  1    wreg      void 
+   962 ;; Registers used:
+   963 ;;		wreg, status,2, status,0, pclath, cstack
+   964 ;; Tracked objects:
+   965 ;;		On entry : 0/0
+   966 ;;		On exit  : 0/0
+   967 ;;		Unchanged: 0/0
+   968 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   969 ;;      Params:         1       0       0       0
+   970 ;;      Locals:         0       3       0       0
+   971 ;;      Temps:          3       0       0       0
+   972 ;;      Totals:         4       3       0       0
+   973 ;;Total ram usage:        7 bytes
+   974 ;; Hardware stack levels used:    1
+   975 ;; Hardware stack levels required when called:    1
+   976 ;; This function calls:
+   977 ;;		___awdiv
+   978 ;; This function is called by:
+   979 ;;		_main
+   980 ;; This function uses a non-reentrant model
+   981 ;;
+   982                           
+   983                           
+   984                           ;psect for function _lights
+   985  0693                     _lights:	
+   986                           
+   987                           ;incstack = 0
+   988                           ; Regs used in _lights: [wreg+status,2+status,0+pclath+cstack]
+   989                           ;lights@height stored from wreg
+   990  0693  0020               	movlb	0	; select bank0
+   991  0694  00A2               	movwf	lights@height
+   992                           
+   993                           ;RAINBO-LPF.c: 43: if (height > 127) {
+   994  0695  3080               	movlw	128
+   995  0696  0222               	subwf	lights@height,w
+   996  0697  1C03               	skipc
+   997  0698  2EB6               	goto	l851
+   998                           
+   999                           ;RAINBO-LPF.c: 44: if (height < 249) {
+  1000  0699  30F9               	movlw	249
+  1001  069A  0222               	subwf	lights@height,w
+  1002  069B  1803               	skipnc
+  1003  069C  2EB1               	goto	l849
+  1004                           
+  1005                           ;RAINBO-LPF.c: 45: height = (height / 4) - 32;
+  1006  069D  3004               	movlw	4
+  1007  069E  00F0               	movwf	___awdiv@divisor
+  1008  069F  3000               	movlw	0
+  1009  06A0  00F1               	movwf	___awdiv@divisor+1
+  1010  06A1  0822               	movf	lights@height,w
+  1011  06A2  00FA               	movwf	??_lights
+  1012  06A3  01FB               	clrf	??_lights+1
+  1013  06A4  087A               	movf	??_lights,w
+  1014  06A5  00F2               	movwf	___awdiv@dividend
+  1015  06A6  087B               	movf	??_lights+1,w
+  1016  06A7  00F3               	movwf	___awdiv@dividend+1
+  1017  06A8  3186  2642  3186   	fcall	___awdiv
+  1018  06AB  0870               	movf	?___awdiv,w
+  1019  06AC  3EE0               	addlw	224
+  1020  06AD  00FC               	movwf	??_lights+2
+  1021  06AE  087C               	movf	??_lights+2,w
+  1022  06AF  0020               	movlb	0	; select bank0
+  1023  06B0  2EB4               	goto	L1
+  1024  06B1                     l849:	
+  1025                           ;RAINBO-LPF.c: 46: } else {
+  1026                           
+  1027                           
+  1028                           ;RAINBO-LPF.c: 47: height = 30;
+  1029  06B1  301E               	movlw	30
+  1030  06B2  00FA               	movwf	??_lights
+  1031  06B3  087A               	movf	??_lights,w
+  1032  06B4                     L1:	
+  1033  06B4  00A2               	movwf	lights@height
+  1034                           
+  1035                           ;RAINBO-LPF.c: 48: }
+  1036                           ;RAINBO-LPF.c: 49: } else {
+  1037  06B5  2EB7               	goto	l853
+  1038  06B6                     l851:	
+  1039                           
+  1040                           ;RAINBO-LPF.c: 50: height = 0;
+  1041  06B6  01A2               	clrf	lights@height
+  1042  06B7                     l853:	
+  1043  06B7  0879               	movf	lights@leds,w
+  1044  06B8  1903               	btfsc	3,2
+  1045  06B9  0008               	return
+  1046                           
+  1047                           ;RAINBO-LPF.c: 54: temp = (leds < height) ? green : 0;
+  1048  06BA  0020               	movlb	0	; select bank0
+  1049  06BB  0822               	movf	lights@height,w
+  1050  06BC  0279               	subwf	lights@leds,w
+  1051  06BD  1C03               	skipc
+  1052  06BE  2EC2               	goto	l861
+  1053  06BF  01A0               	clrf	_lights$65
+  1054  06C0  01A1               	clrf	_lights$65+1
+  1055  06C1  2EC9               	goto	l94
+  1056  06C2                     l861:	
+  1057  06C2  0845               	movf	_green,w
+  1058  06C3  00FA               	movwf	??_lights
+  1059  06C4  01FB               	clrf	??_lights+1
+  1060  06C5  087A               	movf	??_lights,w
+  1061  06C6  00A0               	movwf	_lights$65
+  1062  06C7  087B               	movf	??_lights+1,w
+  1063  06C8  00A1               	movwf	_lights$65+1
+  1064  06C9                     l94:	
+  1065  06C9  0820               	movf	_lights$65,w
+  1066  06CA  00FA               	movwf	??_lights
+  1067  06CB  087A               	movf	??_lights,w
+  1068  06CC  00AE               	movwf	_temp
+  1069                           
+  1070                           ;RAINBO-LPF.c: 55: for (i = 8; i != 0; i--) {
+  1071  06CD  3008               	movlw	8
+  1072  06CE  00FA               	movwf	??_lights
+  1073  06CF  087A               	movf	??_lights,w
+  1074  06D0  00FD               	movwf	_i
+  1075  06D1  087D               	movf	_i,w
+  1076  06D2  1903               	btfsc	3,2
+  1077  06D3  2EE0               	goto	l869
+  1078  06D4                     l95:	
+  1079  06D4  160C               	bsf	268,4	;# 
+  1080  06D5  0000               	nop	;# 
+  1081  06D6  1FAE               	btfss	_temp,7	;# 
+  1082  06D7  120C               	bcf	268,4	;# 
+  1083  06D8  0000               	nop	;# 
+  1084  06D9  35AE               	lslf	_temp,f	;# 
+  1085  06DA  120C               	bcf	268,4	;# 
+  1086  06DB  3001               	movlw	1
+  1087  06DC  02FD               	subwf	_i,f
+  1088  06DD  087D               	movf	_i,w
+  1089  06DE  1D03               	btfss	3,2
+  1090  06DF  2ED4               	goto	l95
+  1091  06E0                     l869:	
+  1092                           
+  1093                           ;RAINBO-LPF.c: 63: }
+  1094                           ;RAINBO-LPF.c: 64: temp = red;
+  1095  06E0  0020               	movlb	0	; select bank0
+  1096  06E1  0833               	movf	_red,w
+  1097  06E2  00FA               	movwf	??_lights
+  1098  06E3  087A               	movf	??_lights,w
+  1099  06E4  00AE               	movwf	_temp
+  1100                           
+  1101                           ;RAINBO-LPF.c: 65: for (i = 8; i != 0; i--) {
+  1102  06E5  3008               	movlw	8
+  1103  06E6  00FA               	movwf	??_lights
+  1104  06E7  087A               	movf	??_lights,w
+  1105  06E8  00FD               	movwf	_i
+  1106  06E9  087D               	movf	_i,w
+  1107  06EA  1903               	btfsc	3,2
+  1108  06EB  2EF8               	goto	l877
+  1109  06EC                     l97:	
+  1110  06EC  160C               	bsf	268,4	;# 
+  1111  06ED  0000               	nop	;# 
+  1112  06EE  1FAE               	btfss	_temp,7	;# 
+  1113  06EF  120C               	bcf	268,4	;# 
+  1114  06F0  0000               	nop	;# 
+  1115  06F1  35AE               	lslf	_temp,f	;# 
+  1116  06F2  120C               	bcf	268,4	;# 
+  1117  06F3  3001               	movlw	1
+  1118  06F4  02FD               	subwf	_i,f
+  1119  06F5  087D               	movf	_i,w
+  1120  06F6  1D03               	btfss	3,2
+  1121  06F7  2EEC               	goto	l97
+  1122  06F8                     l877:	
+  1123                           
+  1124                           ;RAINBO-LPF.c: 73: }
+  1125                           ;RAINBO-LPF.c: 74: temp = blue;
+  1126  06F8  0020               	movlb	0	; select bank0
+  1127  06F9  0832               	movf	_blue,w
+  1128  06FA  00FA               	movwf	??_lights
+  1129  06FB  087A               	movf	??_lights,w
+  1130  06FC  00AE               	movwf	_temp
+  1131                           
+  1132                           ;RAINBO-LPF.c: 75: for (i = 8; i != 0; i--) {
+  1133  06FD  3008               	movlw	8
+  1134  06FE  00FA               	movwf	??_lights
+  1135  06FF  087A               	movf	??_lights,w
+  1136  0700  00FD               	movwf	_i
+  1137  0701  087D               	movf	_i,w
+  1138  0702  1903               	btfsc	3,2
+  1139  0703  2F10               	goto	l885
+  1140  0704                     l99:	
+  1141  0704  160C               	bsf	268,4	;# 
+  1142  0705  0000               	nop	;# 
+  1143  0706  1FAE               	btfss	_temp,7	;# 
+  1144  0707  120C               	bcf	268,4	;# 
+  1145  0708  0000               	nop	;# 
+  1146  0709  35AE               	lslf	_temp,f	;# 
+  1147  070A  120C               	bcf	268,4	;# 
+  1148  070B  3001               	movlw	1
+  1149  070C  02FD               	subwf	_i,f
+  1150  070D  087D               	movf	_i,w
+  1151  070E  1D03               	btfss	3,2
+  1152  070F  2F04               	goto	l99
+  1153  0710                     l885:	
+  1154  0710  3001               	movlw	1
+  1155  0711  02F9               	subwf	lights@leds,f
+  1156  0712  2EB7               	goto	l853
+  1157  0713                     __end_of_lights:	
+  1158                           
+  1159                           	psect	text2
+  1160  0642                     __ptext2:	
+  1161 ;; *************** function ___awdiv *****************
+  1162 ;; Defined at:
+  1163 ;;		line 6 in file "C:\Program Files\Microchip\xc8\v1.44\sources\common\awdiv.c"
+  1164 ;; Parameters:    Size  Location     Type
+  1165 ;;  divisor         2    0[COMMON] int 
+  1166 ;;  dividend        2    2[COMMON] int 
+  1167 ;; Auto vars:     Size  Location     Type
+  1168 ;;  quotient        2    7[COMMON] int 
+  1169 ;;  sign            1    6[COMMON] unsigned char 
+  1170 ;;  counter         1    5[COMMON] unsigned char 
+  1171 ;; Return value:  Size  Location     Type
+  1172 ;;                  2    0[COMMON] int 
+  1173 ;; Registers used:
+  1174 ;;		wreg, status,2, status,0
+  1175 ;; Tracked objects:
+  1176 ;;		On entry : 0/0
+  1177 ;;		On exit  : 0/0
+  1178 ;;		Unchanged: 0/0
+  1179 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1180 ;;      Params:         4       0       0       0
+  1181 ;;      Locals:         4       0       0       0
+  1182 ;;      Temps:          1       0       0       0
+  1183 ;;      Totals:         9       0       0       0
+  1184 ;;Total ram usage:        9 bytes
+  1185 ;; Hardware stack levels used:    1
+  1186 ;; This function calls:
+  1187 ;;		Nothing
+  1188 ;; This function is called by:
+  1189 ;;		_lights
+  1190 ;;		_main
+  1191 ;; This function uses a non-reentrant model
+  1192 ;;
+  1193                           
+  1194                           
+  1195                           ;psect for function ___awdiv
+  1196  0642                     ___awdiv:	
+  1197                           
+  1198                           ;incstack = 0
+  1199                           ; Regs used in ___awdiv: [wreg+status,2+status,0]
+  1200  0642  01F6               	clrf	___awdiv@sign
+  1201  0643  1FF1               	btfss	___awdiv@divisor+1,7
+  1202  0644  2E4C               	goto	l773
+  1203  0645  09F0               	comf	___awdiv@divisor,f
+  1204  0646  09F1               	comf	___awdiv@divisor+1,f
+  1205  0647  0AF0               	incf	___awdiv@divisor,f
+  1206  0648  1903               	skipnz
+  1207  0649  0AF1               	incf	___awdiv@divisor+1,f
+  1208  064A  01F6               	clrf	___awdiv@sign
+  1209  064B  0AF6               	incf	___awdiv@sign,f
+  1210  064C                     l773:	
+  1211  064C  1FF3               	btfss	___awdiv@dividend+1,7
+  1212  064D  2E57               	goto	l779
+  1213  064E  09F2               	comf	___awdiv@dividend,f
+  1214  064F  09F3               	comf	___awdiv@dividend+1,f
+  1215  0650  0AF2               	incf	___awdiv@dividend,f
+  1216  0651  1903               	skipnz
+  1217  0652  0AF3               	incf	___awdiv@dividend+1,f
+  1218  0653  3001               	movlw	1
+  1219  0654  00F4               	movwf	??___awdiv
+  1220  0655  0874               	movf	??___awdiv,w
+  1221  0656  06F6               	xorwf	___awdiv@sign,f
+  1222  0657                     l779:	
+  1223  0657  01F7               	clrf	___awdiv@quotient
+  1224  0658  01F8               	clrf	___awdiv@quotient+1
+  1225  0659  0870               	movf	___awdiv@divisor,w
+  1226  065A  0471               	iorwf	___awdiv@divisor+1,w
+  1227  065B  1903               	btfsc	3,2
+  1228  065C  2E86               	goto	l801
+  1229  065D  01F5               	clrf	___awdiv@counter
+  1230  065E  0AF5               	incf	___awdiv@counter,f
+  1231  065F                     l789:	
+  1232  065F  1BF1               	btfsc	___awdiv@divisor+1,7
+  1233  0660  2E6B               	goto	l791
+  1234  0661  3001               	movlw	1
+  1235  0662                     u355:	
+  1236  0662  35F0               	lslf	___awdiv@divisor,f
+  1237  0663  0DF1               	rlf	___awdiv@divisor+1,f
+  1238  0664  0B89               	decfsz	9,f
+  1239  0665  2E62               	goto	u355
+  1240  0666  3001               	movlw	1
+  1241  0667  00F4               	movwf	??___awdiv
+  1242  0668  0874               	movf	??___awdiv,w
+  1243  0669  07F5               	addwf	___awdiv@counter,f
+  1244  066A  2E5F               	goto	l789
+  1245  066B                     l791:	
+  1246  066B  3001               	movlw	1
+  1247  066C                     u375:	
+  1248  066C  35F7               	lslf	___awdiv@quotient,f
+  1249  066D  0DF8               	rlf	___awdiv@quotient+1,f
+  1250  066E  0B89               	decfsz	9,f
+  1251  066F  2E6C               	goto	u375
+  1252  0670  0871               	movf	___awdiv@divisor+1,w
+  1253  0671  0273               	subwf	___awdiv@dividend+1,w
+  1254  0672  1D03               	skipz
+  1255  0673  2E76               	goto	u385
+  1256  0674  0870               	movf	___awdiv@divisor,w
+  1257  0675  0272               	subwf	___awdiv@dividend,w
+  1258  0676                     u385:	
+  1259  0676  1C03               	skipc
+  1260  0677  2E7D               	goto	l797
+  1261  0678  0870               	movf	___awdiv@divisor,w
+  1262  0679  02F2               	subwf	___awdiv@dividend,f
+  1263  067A  0871               	movf	___awdiv@divisor+1,w
+  1264  067B  3BF3               	subwfb	___awdiv@dividend+1,f
+  1265  067C  1477               	bsf	___awdiv@quotient,0
+  1266  067D                     l797:	
+  1267  067D  3001               	movlw	1
+  1268  067E                     u395:	
+  1269  067E  36F1               	lsrf	___awdiv@divisor+1,f
+  1270  067F  0CF0               	rrf	___awdiv@divisor,f
+  1271  0680  0B89               	decfsz	9,f
+  1272  0681  2E7E               	goto	u395
+  1273  0682  3001               	movlw	1
+  1274  0683  02F5               	subwf	___awdiv@counter,f
+  1275  0684  1D03               	btfss	3,2
+  1276  0685  2E6B               	goto	l791
+  1277  0686                     l801:	
+  1278  0686  0876               	movf	___awdiv@sign,w
+  1279  0687  1903               	btfsc	3,2
+  1280  0688  2E8E               	goto	l805
+  1281  0689  09F7               	comf	___awdiv@quotient,f
+  1282  068A  09F8               	comf	___awdiv@quotient+1,f
+  1283  068B  0AF7               	incf	___awdiv@quotient,f
+  1284  068C  1903               	skipnz
+  1285  068D  0AF8               	incf	___awdiv@quotient+1,f
+  1286  068E                     l805:	
+  1287  068E  0878               	movf	___awdiv@quotient+1,w
+  1288  068F  00F1               	movwf	?___awdiv+1
+  1289  0690  0877               	movf	___awdiv@quotient,w
+  1290  0691  00F0               	movwf	?___awdiv
+  1291  0692  0008               	return
+  1292  0693                     __end_of___awdiv:	
+  1293                           
+  1294                           	psect	text3
+  1295  0626                     __ptext3:	
+  1296 ;; *************** function _init *****************
+  1297 ;; Defined at:
+  1298 ;;		line 12 in file "RAINBO.c"
+  1299 ;; Parameters:    Size  Location     Type
+  1300 ;;		None
+  1301 ;; Auto vars:     Size  Location     Type
+  1302 ;;		None
+  1303 ;; Return value:  Size  Location     Type
+  1304 ;;                  1    wreg      void 
+  1305 ;; Registers used:
+  1306 ;;		wreg, status,2
+  1307 ;; Tracked objects:
+  1308 ;;		On entry : 0/0
+  1309 ;;		On exit  : 0/0
+  1310 ;;		Unchanged: 0/0
+  1311 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1312 ;;      Params:         0       0       0       0
+  1313 ;;      Locals:         0       0       0       0
+  1314 ;;      Temps:          0       0       0       0
+  1315 ;;      Totals:         0       0       0       0
+  1316 ;;Total ram usage:        0 bytes
+  1317 ;; Hardware stack levels used:    1
+  1318 ;; This function calls:
+  1319 ;;		Nothing
+  1320 ;; This function is called by:
+  1321 ;;		_main
+  1322 ;; This function uses a non-reentrant model
+  1323 ;;
+  1324                           
+  1325                           
+  1326                           ;psect for function _init
+  1327  0626                     _init:	
+  1328                           
+  1329                           ;RAINBO.c: 16: OSCCON = 0b11110000;
+  1330                           
+  1331                           ;incstack = 0
+  1332                           ; Regs used in _init: [wreg+status,2]
+  1333  0626  30F0               	movlw	240
+  1334  0627  0021               	movlb	1	; select bank1
+  1335  0628  0099               	movwf	25	;volatile
+  1336  0629                     l27:	
+  1337                           ;RAINBO.c: 17: while(!PLLR);
+  1338                           
+  1339  0629  1F1A               	btfss	26,6	;volatile
+  1340  062A  2E29               	goto	l27
+  1341                           
+  1342                           ;RAINBO.c: 21: OPTION_REG = 0b00010000;
+  1343  062B  3010               	movlw	16
+  1344  062C  0095               	movwf	21	;volatile
+  1345                           
+  1346                           ;RAINBO.c: 23: PORTA = 0;
+  1347  062D  0020               	movlb	0	; select bank0
+  1348  062E  018C               	clrf	12	;volatile
+  1349                           
+  1350                           ;RAINBO.c: 24: LATA = 0;
+  1351  062F  0022               	movlb	2	; select bank2
+  1352  0630  018C               	clrf	12	;volatile
+  1353                           
+  1354                           ;RAINBO.c: 25: ANSELA = 0b00000011;
+  1355  0631  3003               	movlw	3
+  1356  0632  0023               	movlb	3	; select bank3
+  1357  0633  008C               	movwf	12	;volatile
+  1358                           
+  1359                           ;RAINBO.c: 26: ADCON0 = 0b00000000;
+  1360  0634  0021               	movlb	1	; select bank1
+  1361  0635  019D               	clrf	29	;volatile
+  1362                           
+  1363                           ;RAINBO.c: 27: ADCON1 = 0b01100000;
+  1364  0636  3060               	movlw	96
+  1365  0637  009E               	movwf	30	;volatile
+  1366                           
+  1367                           ;RAINBO.c: 28: TRISA = 0b00001111;
+  1368  0638  300F               	movlw	15
+  1369  0639  008C               	movwf	12	;volatile
+  1370                           
+  1371                           ;RAINBO.c: 29: WPUA = 0b00001000;
+  1372  063A  3008               	movlw	8
+  1373  063B  0024               	movlb	4	; select bank4
+  1374  063C  008C               	movwf	12	;volatile
+  1375                           
+  1376                           ;RAINBO.c: 31: WDTCON = 0b00001010;
+  1377  063D  300A               	movlw	10
+  1378  063E  0021               	movlb	1	; select bank1
+  1379  063F  0097               	movwf	23	;volatile
+  1380                           
+  1381                           ;RAINBO.c: 35: INTCON = 0;
+  1382  0640  018B               	clrf	11	;volatile
+  1383  0641  0008               	return
+  1384  0642                     __end_of_init:	
+  1385                           
+  1386                           	psect	text4
+  1387  0612                     __ptext4:	
+  1388 ;; *************** function _adConvert *****************
+  1389 ;; Defined at:
+  1390 ;;		line 29 in file "RAINBO-LPF.c"
+  1391 ;; Parameters:    Size  Location     Type
+  1392 ;;  chan            1    wreg     unsigned char 
+  1393 ;; Auto vars:     Size  Location     Type
+  1394 ;;  chan            1    0[COMMON] unsigned char 
+  1395 ;; Return value:  Size  Location     Type
+  1396 ;;                  1    wreg      unsigned char 
+  1397 ;; Registers used:
+  1398 ;;		wreg, status,2, status,0
+  1399 ;; Tracked objects:
+  1400 ;;		On entry : 0/0
+  1401 ;;		On exit  : 0/0
+  1402 ;;		Unchanged: 0/0
+  1403 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1404 ;;      Params:         0       0       0       0
+  1405 ;;      Locals:         1       0       0       0
+  1406 ;;      Temps:          0       0       0       0
+  1407 ;;      Totals:         1       0       0       0
+  1408 ;;Total ram usage:        1 bytes
+  1409 ;; Hardware stack levels used:    1
+  1410 ;; This function calls:
+  1411 ;;		Nothing
+  1412 ;; This function is called by:
+  1413 ;;		_main
+  1414 ;; This function uses a non-reentrant model
+  1415 ;;
+  1416                           
+  1417                           
+  1418                           ;psect for function _adConvert
+  1419  0612                     _adConvert:	
+  1420                           
+  1421                           ;incstack = 0
+  1422                           ; Regs used in _adConvert: [wreg+status,2+status,0]
+  1423                           ;adConvert@chan stored from wreg
+  1424  0612  00F0               	movwf	adConvert@chan
+  1425                           
+  1426                           ;RAINBO-LPF.c: 30: ADON = 1;
+  1427  0613  0021               	movlb	1	; select bank1
+  1428  0614  141D               	bsf	29,0	;volatile
+  1429                           
+  1430                           ;RAINBO-LPF.c: 31: ADCON0 = (ADCON0 & 0b10000011);
+  1431  0615  081D               	movf	29,w	;volatile
+  1432  0616  3983               	andlw	131
+  1433  0617  009D               	movwf	29	;volatile
+  1434                           
+  1435                           ;RAINBO-LPF.c: 32: ADCON0 = (ADCON0 | chan);
+  1436  0618  081D               	movf	29,w	;volatile
+  1437  0619  0470               	iorwf	adConvert@chan,w
+  1438  061A  009D               	movwf	29	;volatile
+  1439                           
+  1440                           ;RAINBO-LPF.c: 33: _delay((unsigned long)((2)*(32000000/4000000.0)));
+  1441  061B  3005               	movlw	5
+  1442  061C                     u657:	
+  1443  061C  0B89               	decfsz	9,f
+  1444  061D  2E1C               	goto	u657
+  1445  061E  0000               	nop
+  1446                           
+  1447                           ;RAINBO-LPF.c: 35: GO = 1;
+  1448  061F  0021               	movlb	1	; select bank1
+  1449  0620  149D               	bsf	29,1	;volatile
+  1450  0621                     l79:	
+  1451                           ;RAINBO-LPF.c: 36: while (GO);
+  1452                           
+  1453  0621  189D               	btfsc	29,1	;volatile
+  1454  0622  2E21               	goto	l79
+  1455                           
+  1456                           ;RAINBO-LPF.c: 38: ADON = 0;
+  1457  0623  101D               	bcf	29,0	;volatile
+  1458                           
+  1459                           ;RAINBO-LPF.c: 39: return (ADRESH);
+  1460  0624  081C               	movf	28,w	;volatile
+  1461  0625  0008               	return
+  1462  0626                     __end_of_adConvert:	
+  1463  007E                     btemp	set	126	;btemp
+  1464  007E                     wtemp0	set	126
 
 
 Data Sizes:
     Strings     0
     Constant    1
     Data        11
-    BSS         10
+    BSS         14
     Persistent  0
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON           14     13      14
-    BANK0            80      8      28
+    BANK0            80     14      38
     BANK1            80      0       0
     BANK2            80      0       0
 
@@ -1340,18 +1519,19 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 5     5      0     755
-                                              3 BANK0      5     5      0
+ (0) _main                                                11    11      0    1305
+                                              3 BANK0     11    11      0
+                            ___awdiv
                           _adConvert
                                _init
                              _lights
  ---------------------------------------------------------------------------------
- (1) _lights                                               7     6      1     641
+ (1) _lights                                               7     6      1     747
                                               9 COMMON     4     3      1
                                               0 BANK0      3     3      0
                             ___awdiv
  ---------------------------------------------------------------------------------
- (2) ___awdiv                                              9     5      4     406
+ (2) ___awdiv                                              9     5      4     512
                                               0 COMMON     9     5      4
  ---------------------------------------------------------------------------------
  (1) _init                                                 0     0      0       0
@@ -1365,6 +1545,7 @@ Call Graph Tables:
  Call Graph Graphs:
 
  _main (ROOT)
+   ___awdiv
    _adConvert
    _init
    _lights
@@ -1387,11 +1568,11 @@ SFR2                 0      0       0       3        0.0%
 STACK                0      0       0       3        0.0%
 BITSFR3              0      0       0       4        0.0%
 SFR3                 0      0       0       4        0.0%
-ABS                  0      0      2A       4        0.0%
+ABS                  0      0      34       4        0.0%
 BITBANK0            50      0       0       5        0.0%
 BITSFR4              0      0       0       5        0.0%
 SFR4                 0      0       0       5        0.0%
-BANK0               50      8      1C       6       35.0%
+BANK0               50      E      26       6       47.5%
 BITSFR5              0      0       0       6        0.0%
 SFR5                 0      0       0       6        0.0%
 BITBANK1            50      0       0       7        0.0%
@@ -1408,7 +1589,7 @@ BITSFR9              0      0       0      10        0.0%
 SFR9                 0      0       0      10        0.0%
 BITSFR10             0      0       0      11        0.0%
 SFR10                0      0       0      11        0.0%
-DATA                 0      0      2A      11        0.0%
+DATA                 0      0      34      11        0.0%
 BITSFR11             0      0       0      12        0.0%
 SFR11                0      0       0      12        0.0%
 BITSFR12             0      0       0      13        0.0%
@@ -1454,53 +1635,56 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.44 build -154322312 
-Symbol Table                                                                                   Fri Dec 01 15:39:40 2017
+Symbol Table                                                                                   Fri Dec 01 16:34:53 2017
 
-                      _i 007D              __CFG_CP$OFF 0000                       l27 06A0  
-                     l71 0698                       l91 07D9                       l86 079E  
-                     l87 07A9                       l89 07C1                       _GO 04E9  
-           ___awdiv@sign 0076                      LATA 010C                      l730 06C3  
-                    l810 078C                      l806 0786                      l736 06CE  
-                    l808 078B                      l762 0705                      l754 06F4  
-                    l746 06D6                      l842 07E5                      l834 07CD  
-                    l826 07B5                      l818 0797                      l748 06E2  
-                    l860 073A                      l758 06FD                      l872 074F  
-                    l856 0734                      l848 0714                      l866 073F  
-                    l858 0736                      u315 06D9                      u335 06E3  
-                    u345 06ED             __CFG_CPD$OFF 0000                      u355 06F5  
-                    u557 070E                      u567 0761                      u577 0693  
-                    _red 0030             __CFG_BORV$LO 0000                      wreg 0009  
-           __CFG_LVP$OFF 0000                     _ADON 04E8                     _LATA 010C  
-                   _PLLR 04D6                     _WPUA 020C             __CFG_WRT$OFF 0000  
-                   _blue 002F                     _main 070A                     _init 069D  
-                   _temp 002B                     fsr0h 0005                     fsr1h 0007  
-                   indf0 0000                     fsr0l 0004                     indf1 0001  
-                   fsr1l 0006                     btemp 007E                     start 0002  
-          __CFG_IESO$OFF 0000            __CFG_PLLEN$ON 0000                    ?_main 0070  
-                  ?_init 0070          __end_of___awdiv 070A          ___awdiv@divisor 0070  
-        ___awdiv@counter 0075                    _PORTA 000C                    _TRISA 008C  
-          __CFG_PWRTE$ON 0000           __CFG_FCMEN$OFF 0000          __end_of_maxLEDs 0801  
-                  _green 002A                    main@v 003B           __CFG_BOREN$OFF 0000  
-                  status 0003                    wtemp0 007E           __CFG_MCLRE$OFF 0000  
-        __initialization 07E8             __end_of_main 0768             __end_of_init 06B9  
-                 ??_main 0037                   ??_init 0070                   _ADCON0 009D  
-                 _ADCON1 009E                   _ADRESH 009C         ___awdiv@dividend 0072  
-                 _ANSELA 018C                   _INTCON 000B                   _LPFAvg 0032  
-                 _OSCCON 0099                   _WDTCON 0097                ??___awdiv 0074  
-         __CFG_STVREN$ON 0000                   _lights 0768         ___awdiv@quotient 0077  
-                 _tempIN 0031       __size_of_adConvert 0014  __end_of__initialization 07FD  
-         __pcstackCOMMON 0070             __pidataBANK0 067E               __pbssBANK0 002B  
-             __pmaintext 070A        __end_of_adConvert 069D                  ?_lights 0079  
-           lights@height 0036                  ___awdiv 06B9          __size_of_lights 0080  
-                _main$69 0039                  __ptext1 0768                  __ptext2 06B9  
-                __ptext3 069D                  __ptext4 0689                  _maxLEDs 0800  
-                _lastVal 0033                  _tempRed 002E     end_of_initialization 07FD  
-                init_ram 0678                  initloop 0679         __CFG_FOSC$INTOSC 0000  
-         __end_of_lights 07E8      start_initialization 07E8               lights@leds 0079  
-            __pdataBANK0 0020                 ??_lights 007A                _adConvert 0689  
-            __pbssCOMMON 007D                ___latbits 0001            __pcstackBANK0 0034  
-               ?___awdiv 0070               ?_adConvert 0070                _lights$61 0034  
-       __CFG_WDTE$SWDTEN 0000                _tempGreen 002D                 _LPFInput 0020  
-       __size_of___awdiv 0051              ??_adConvert 0070            __size_of_main 005E  
-          __size_of_init 001C                 _tempBlue 002C        __CFG_CLKOUTEN$OFF 0000  
+                      _i 007D              __CFG_CP$OFF 0000                       l27 0629  
+                     l94 06C9                       l79 0621                       l95 06D4  
+                     l97 06EC                       _GO 04E9                       l99 0704  
+           ___awdiv@sign 0076                      LATA 010C                      l801 0686  
+                    l805 068E                      l911 0748                      l921 0769  
+                    l851 06B6                      l915 074D                      l907 0742  
+                    l773 064C                      l861 06C2                      l853 06B7  
+                    l933 0795                      l941 07AD                      l909 0744  
+                    l791 066B                      l927 0781                      l849 06B1  
+                    l937 07A5                      l779 0657                      l891 071D  
+                    l797 067D                      l789 065F                      l885 0710  
+                    l877 06F8                      l869 06E0             __CFG_CPD$OFF 0000  
+                    u355 0662                      u375 066C                      u385 0676  
+                    u395 067E                      u637 0717                      u647 07E2  
+                    u657 061C                      _red 0033             __CFG_BORV$LO 0000  
+                    wreg 0009             __CFG_LVP$OFF 0000                     _ADON 04E8  
+                   _LATA 010C                     _PLLR 04D6                     _WPUA 020C  
+           __CFG_WRT$OFF 0000                     _max1 0037                     _max2 0036  
+                   _max3 0035                     _blue 0032                     _max4 0034  
+                   _main 0713                     _init 0626                     _temp 002E  
+                   fsr0h 0005                     fsr1h 0007                     indf0 0000  
+                   fsr0l 0004                     indf1 0001                     fsr1l 0006  
+                   btemp 007E                     start 0002            __CFG_IESO$OFF 0000  
+          __CFG_PLLEN$ON 0000                    ?_main 0070                    ?_init 0070  
+        __end_of___awdiv 0693          ___awdiv@divisor 0070          ___awdiv@counter 0075  
+                  _PORTA 000C                    _TRISA 008C            __CFG_PWRTE$ON 0000  
+         __CFG_FCMEN$OFF 0000          __end_of_maxLEDs 0801                    _green 0045  
+         __CFG_BOREN$OFF 0000                    status 0003                    wtemp0 007E  
+         __CFG_MCLRE$OFF 0000          __initialization 07E9             __end_of_main 07E9  
+           __end_of_init 0642                   ??_main 0023                   ??_init 0070  
+                 _ADCON0 009D                   _ADCON1 009E                   _ADRESH 009C  
+       ___awdiv@dividend 0072                   _ANSELA 018C                   _INTCON 000B  
+                 _LPFAvg 0039                   _OSCCON 0099                   _WDTCON 0097  
+              ??___awdiv 0074           __CFG_STVREN$ON 0000                   _lights 0693  
+       ___awdiv@quotient 0077                   _tempIN 0038       __size_of_adConvert 0014  
+__end_of__initialization 07FD           __pcstackCOMMON 0070             __pidataBANK0 0607  
+             __pbssBANK0 002E               __pmaintext 0713        __end_of_adConvert 0626  
+                ?_lights 0079             lights@height 0022                  ___awdiv 0642  
+        __size_of_lights 0080                  _main$75 002C                  __ptext1 0693  
+                __ptext2 0642                  __ptext3 0626                  __ptext4 0612  
+                _maxLEDs 0800                  _lastVal 003A                  _tempRed 0031  
+                clrloop0 05FC     end_of_initialization 07FD                  init_ram 0601  
+                initloop 0602         __CFG_FOSC$INTOSC 0000           __end_of_lights 0713  
+    start_initialization 07E9               lights@leds 0079              __pdataBANK0 003B  
+               ??_lights 007A                _adConvert 0612              __pbssCOMMON 007D  
+              ___latbits 0001            __pcstackBANK0 0020                 ?___awdiv 0070  
+             ?_adConvert 0070                _lights$65 0020         __CFG_WDTE$SWDTEN 0000  
+              clear_ram0 05FB                _tempGreen 0030                 _LPFInput 003B  
+       __size_of___awdiv 0051              ??_adConvert 0070            __size_of_main 00D6  
+          __size_of_init 001C                 _tempBlue 002F        __CFG_CLKOUTEN$OFF 0000  
           adConvert@chan 0070            __pstringtext1 0800               _OPTION_REG 0095  
