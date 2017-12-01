@@ -1,0 +1,115 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 12F1840 ]
+[d frameptr 6 ]
+"6 C:\Program Files\Microchip\xc8\v1.44\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"62 C:\Program Files\Microchip\xc8\v1.44\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files\Microchip\xc8\v1.44\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files\Microchip\xc8\v1.44\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"39
+[v _memcpyee memcpyee `(v  1 e 1 0 ]
+"28 H:\MPLAB\LPF\RAINBO-LPF.c
+[v _adConvert adConvert `(uc  1 e 1 0 ]
+"41
+[v _lights lights `(v  1 e 1 0 ]
+"86
+[v _main main `(i  1 e 2 0 ]
+"12 H:\MPLAB\LPF\RAINBO.c
+[v _init init `(v  1 e 1 0 ]
+"349 C:\Program Files\Microchip\xc8\v1.44\include\pic12f1840.h
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"427
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+"1000
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1152
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @149 ]
+"1286
+[v _WDTCON WDTCON `VEuc  1 e 1 @151 ]
+"1403
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"1564
+[v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
+"1584
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
+"1664
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
+"1730
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"2393
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"2983
+[v _WPUA WPUA `VEuc  1 e 1 @524 ]
+"4873
+[v _ADON ADON `VEb  1 e 0 @1256 ]
+"5075
+[v _GO GO `VEb  1 e 0 @1257 ]
+"5243
+[v _PLLR PLLR `VEb  1 e 0 @1238 ]
+"10 H:\MPLAB\LPF\RAINBO-LPF.c
+[v _LPFInput LPFInput `[10]uc  1 e 10 0 ]
+"11
+[v _lastVal lastVal `uc  1 e 1 0 ]
+"12
+[v _LPFAvg LPFAvg `uc  1 e 1 0 ]
+"13
+[v _tempIN tempIN `uc  1 e 1 0 ]
+"15
+[v _red red `uc  1 e 1 0 ]
+"16
+[v _green green `uc  1 e 1 0 ]
+"17
+[v _blue blue `uc  1 e 1 0 ]
+"23
+[v _maxLEDs maxLEDs `DCuc  1 e 1 0 ]
+"25
+[v _temp temp `uc  1 e 1 0 ]
+"26
+[v _i i `uc  1 e 1 0 ]
+"86
+[v _main main `(i  1 e 2 0 ]
+{
+"97
+[v main@v v `uc  1 a 1 7 ]
+"105
+} 0
+"41
+[v _lights lights `(v  1 e 1 0 ]
+{
+[v lights@height height `uc  1 a 1 wreg ]
+[v lights@height height `uc  1 a 1 wreg ]
+[v lights@leds leds `uc  1 p 1 9 ]
+[v lights@height height `uc  1 a 1 2 ]
+"84
+} 0
+"6 C:\Program Files\Microchip\xc8\v1.44\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 7 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 6 ]
+[v ___awdiv@counter counter `uc  1 a 1 5 ]
+"6
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"42
+} 0
+"12 H:\MPLAB\LPF\RAINBO.c
+[v _init init `(v  1 e 1 0 ]
+{
+"36
+} 0
+"28 H:\MPLAB\LPF\RAINBO-LPF.c
+[v _adConvert adConvert `(uc  1 e 1 0 ]
+{
+[v adConvert@chan chan `uc  1 a 1 wreg ]
+[v adConvert@chan chan `uc  1 a 1 wreg ]
+[v adConvert@chan chan `uc  1 a 1 0 ]
+"39
+} 0
