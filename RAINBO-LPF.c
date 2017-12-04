@@ -40,9 +40,9 @@ unsigned char adConvert(unsigned char chan) {
 }
 
 void lights(unsigned char height, unsigned char leds) {
-    if (height > 127) {
-        if (height < 249) {
-            height = (height / 4) - 32;
+    if (height > 193) {
+        if (height < 255) {
+            height = (height / 2) - 97;
         } else {
             height = 30;
         }
@@ -84,9 +84,6 @@ void lights(unsigned char height, unsigned char leds) {
     }
 }
 
-void topvals(unsigned char) {
-
-}
 
 int main(void) {
     init();
@@ -99,32 +96,35 @@ int main(void) {
         max3 = 0;
         max4 = 0;
         tempIN = adConvert(LPF);
-        if (tempIN > 127) {
+        if (tempIN > 193) {
             LPFInput[lastVal] = tempIN;
             lastVal = (lastVal == 9) ? 0 : lastVal + 1;
         }
-        for(i = 0; i < 10; i++){
-            if(LPFInput[i] > max1){
+        for (i = 0; i < 10; i++) {
+            if (LPFInput[i] > max1) {
                 max4 = max3;
                 max3 = max2;
                 max2 = max1;
                 max1 = LPFInput[i];
             }
-            if(LPFInput[i] > max2){
+            if (LPFInput[i] > max2) {
                 max4 = max3;
                 max3 = max2;
                 max2 = LPFInput[i];
             }
-            if(LPFInput[i] > max3){
+            if (LPFInput[i] > max3) {
                 max4 = max3;
                 max3 = LPFInput[i];
             }
-            if(LPFInput[i] > max4){
+            if (LPFInput[i] > max4) {
                 max4 = LPFInput[i];
             }
         }
         LPFAvg = (max1 + max2 + max3 + max4) / 4;
+        if (tempIN == 0) {
+            LPFAvg == 0;
+        }
         lights(LPFAvg, maxLEDs);
-        __delay_ms(50);
+        __delay_ms(10);
     }
 }
