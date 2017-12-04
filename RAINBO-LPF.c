@@ -6,7 +6,7 @@
 
 
 
-
+//
 unsigned char LPFInput[10] = {128, 128, 128, 128, 128, 128, 128, 128, 128, 128};
 unsigned char lastVal = 0;
 unsigned char LPFAvg;
