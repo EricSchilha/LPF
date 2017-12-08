@@ -3,11 +3,7 @@
 #include    "stdbool.h"         
 #include	"RAINBO.h"			
 
-
-
-
-//
-unsigned char LPFInput[10] = {128, 128, 128, 128, 128, 128, 128, 128, 128, 128};
+unsigned char LPFInput[10] = {127, 127, 127, 127, 127, 127, 127, 127, 127, 127};
 unsigned char lastVal = 0;
 unsigned char LPFAvg;
 unsigned char tempIN;
@@ -40,16 +36,11 @@ unsigned char adConvert(unsigned char chan) {
 }
 
 void lights(unsigned char height, unsigned char leds) {
-    if (height > 193) {
-        if (height < 255) {
-            height = (height / 2) - 97;
-        } else {
-            height = 30;
-        }
+    if (height < 247) {
+        height = (height / 4) - 31;
     } else {
-        height = 0;
+        height = 8;
     }
-    //if(height==0)return;
     for (leds; leds != 0; leds--) {
         temp = (leds < height) ? green : 0;
         for (i = 8; i != 0; i--) {
@@ -84,7 +75,6 @@ void lights(unsigned char height, unsigned char leds) {
     }
 }
 
-
 int main(void) {
     init();
     __delay_us(200);
@@ -96,34 +86,35 @@ int main(void) {
         max3 = 0;
         max4 = 0;
         tempIN = adConvert(LPF);
-        if (tempIN > 193) {
+        if (tempIN > 127) {
             LPFInput[lastVal] = tempIN;
             lastVal = (lastVal == 9) ? 0 : lastVal + 1;
         }
-        for (i = 0; i < 10; i++) {
-            if (LPFInput[i] > max1) {
-                max4 = max3;
-                max3 = max2;
-                max2 = max1;
-                max1 = LPFInput[i];
-            }
-            if (LPFInput[i] > max2) {
-                max4 = max3;
-                max3 = max2;
-                max2 = LPFInput[i];
-            }
-            if (LPFInput[i] > max3) {
-                max4 = max3;
-                max3 = LPFInput[i];
-            }
-            if (LPFInput[i] > max4) {
-                max4 = LPFInput[i];
-            }
+//        for (i = 0; i < 10; i++) {
+//            if (LPFInput[i] > max1) {
+//                max4 = max3;
+//                max3 = max2;
+//                max2 = max1;
+//                max1 = LPFInput[i];
+//            }
+//            if (LPFInput[i] > max2) {
+//                max4 = max3;
+//                max3 = max2;
+//                max2 = LPFInput[i];
+//            }
+//            if (LPFInput[i] > max3) {
+//                max4 = max3;
+//                max3 = LPFInput[i];
+//            }
+//            if (LPFInput[i] > max4) {
+//                max4 = LPFInput[i];
+//            }
+//        }
+        LPFAvg = 0;
+        for(i = 0; i != 10; i++){
+            LPFAvg += LPFInput[i];
         }
-        LPFAvg = (max1 + max2 + max3 + max4) / 4;
-        if (tempIN == 0) {
-            LPFAvg == 0;
-        }
+        LPFAvg/=10;
         lights(LPFAvg, maxLEDs);
         __delay_ms(10);
     }

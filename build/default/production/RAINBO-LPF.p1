@@ -2084,36 +2084,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;RAINBO.h: 34: void init(void);
-"10 RAINBO-LPF.c
+"6 RAINBO-LPF.c
 [v _LPFInput `uc ~T0 @X0 -> 10 `i e ]
 [i _LPFInput
 :U ..
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
 ..
 ]
-[; ;RAINBO-LPF.c: 10: unsigned char LPFInput[10] = {128, 128, 128, 128, 128, 128, 128, 128, 128, 128};
-"11
+[; ;RAINBO-LPF.c: 6: unsigned char LPFInput[10] = {127, 127, 127, 127, 127, 127, 127, 127, 127, 127};
+"7
 [v _lastVal `uc ~T0 @X0 1 e ]
 [i _lastVal
 -> -> 0 `i `uc
 ]
-[; ;RAINBO-LPF.c: 11: unsigned char lastVal = 0;
-"12
+[; ;RAINBO-LPF.c: 7: unsigned char lastVal = 0;
+"8
 [v _LPFAvg `uc ~T0 @X0 1 e ]
-[; ;RAINBO-LPF.c: 12: unsigned char LPFAvg;
-"13
+[; ;RAINBO-LPF.c: 8: unsigned char LPFAvg;
+"9
 [v _tempIN `uc ~T0 @X0 1 e ]
-[; ;RAINBO-LPF.c: 13: unsigned char tempIN;
-"14
+[; ;RAINBO-LPF.c: 9: unsigned char tempIN;
+"10
 [v _max1 `uc ~T0 @X0 1 e ]
 [i _max1
 -> -> 0 `i `uc
@@ -2130,428 +2130,344 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _max4
 -> -> 0 `i `uc
 ]
-[; ;RAINBO-LPF.c: 14: unsigned char max1 = 0, max2 = 0, max3 = 0, max4 = 0;
-"16
+[; ;RAINBO-LPF.c: 10: unsigned char max1 = 0, max2 = 0, max3 = 0, max4 = 0;
+"12
 [v _red `uc ~T0 @X0 1 e ]
 [i _red
 -> -> 0 `i `uc
 ]
-[; ;RAINBO-LPF.c: 16: unsigned char red = 0;
-"17
+[; ;RAINBO-LPF.c: 12: unsigned char red = 0;
+"13
 [v _green `uc ~T0 @X0 1 e ]
 [i _green
 -> -> 64 `i `uc
 ]
-[; ;RAINBO-LPF.c: 17: unsigned char green = 64;
-"18
+[; ;RAINBO-LPF.c: 13: unsigned char green = 64;
+"14
 [v _blue `uc ~T0 @X0 1 e ]
 [i _blue
 -> -> 0 `i `uc
 ]
-[; ;RAINBO-LPF.c: 18: unsigned char blue = 0;
-"20
+[; ;RAINBO-LPF.c: 14: unsigned char blue = 0;
+"16
 [v _tempRed `uc ~T0 @X0 1 e ]
-[; ;RAINBO-LPF.c: 20: unsigned char tempRed;
-"21
+[; ;RAINBO-LPF.c: 16: unsigned char tempRed;
+"17
 [v _tempGreen `uc ~T0 @X0 1 e ]
-[; ;RAINBO-LPF.c: 21: unsigned char tempGreen;
-"22
+[; ;RAINBO-LPF.c: 17: unsigned char tempGreen;
+"18
 [v _tempBlue `uc ~T0 @X0 1 e ]
-[; ;RAINBO-LPF.c: 22: unsigned char tempBlue;
-"24
+[; ;RAINBO-LPF.c: 18: unsigned char tempBlue;
+"20
 [v _maxLEDs `Cuc ~T0 @X0 1 e ]
 [i _maxLEDs
 -> -> 30 `i `uc
 ]
-[; ;RAINBO-LPF.c: 24: const char maxLEDs = 30;
-"26
+[; ;RAINBO-LPF.c: 20: const char maxLEDs = 30;
+"22
 [v _temp `uc ~T0 @X0 1 e ]
-[; ;RAINBO-LPF.c: 26: unsigned char temp;
-"27
+[; ;RAINBO-LPF.c: 22: unsigned char temp;
+"23
 [v _i `uc ~T0 @X0 1 e ]
-[; ;RAINBO-LPF.c: 27: unsigned char i;
-"29
+[; ;RAINBO-LPF.c: 23: unsigned char i;
+"25
 [v _adConvert `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;RAINBO-LPF.c: 29: unsigned char adConvert(unsigned char chan) {
+[; ;RAINBO-LPF.c: 25: unsigned char adConvert(unsigned char chan) {
 [e :U _adConvert ]
 [v _chan `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;RAINBO-LPF.c: 30: ADON = 1;
-"30
+[; ;RAINBO-LPF.c: 26: ADON = 1;
+"26
 [e = _ADON -> -> 1 `i `b ]
-[; ;RAINBO-LPF.c: 31: ADCON0 = (ADCON0 & 0b10000011);
-"31
+[; ;RAINBO-LPF.c: 27: ADCON0 = (ADCON0 & 0b10000011);
+"27
 [e = _ADCON0 -> & -> _ADCON0 `i -> 131 `i `uc ]
-[; ;RAINBO-LPF.c: 32: ADCON0 = (ADCON0 | chan);
-"32
+[; ;RAINBO-LPF.c: 28: ADCON0 = (ADCON0 | chan);
+"28
 [e = _ADCON0 -> | -> _ADCON0 `i -> _chan `i `uc ]
-[; ;RAINBO-LPF.c: 33: _delay((unsigned long)((2)*(32000000/4000000.0)));
-"33
+[; ;RAINBO-LPF.c: 29: _delay((unsigned long)((2)*(32000000/4000000.0)));
+"29
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[; ;RAINBO-LPF.c: 35: GO = 1;
-"35
+[; ;RAINBO-LPF.c: 31: GO = 1;
+"31
 [e = _GO -> -> 1 `i `b ]
-[; ;RAINBO-LPF.c: 36: while (GO);
-"36
+[; ;RAINBO-LPF.c: 32: while (GO);
+"32
 [e $U 263  ]
 [e :U 264 ]
 [e :U 263 ]
 [e $ _GO 264  ]
 [e :U 265 ]
-[; ;RAINBO-LPF.c: 38: ADON = 0;
-"38
+[; ;RAINBO-LPF.c: 34: ADON = 0;
+"34
 [e = _ADON -> -> 0 `i `b ]
-[; ;RAINBO-LPF.c: 39: return (ADRESH);
-"39
+[; ;RAINBO-LPF.c: 35: return (ADRESH);
+"35
 [e ) _ADRESH ]
 [e $UE 262  ]
-[; ;RAINBO-LPF.c: 40: }
-"40
+[; ;RAINBO-LPF.c: 36: }
+"36
 [e :UE 262 ]
 }
-"42
+"38
 [v _lights `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;RAINBO-LPF.c: 42: void lights(unsigned char height, unsigned char leds) {
+[; ;RAINBO-LPF.c: 38: void lights(unsigned char height, unsigned char leds) {
 [e :U _lights ]
 [v _height `uc ~T0 @X0 1 r1 ]
 [v _leds `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;RAINBO-LPF.c: 43: if (height > 193) {
-"43
-[e $ ! > -> _height `i -> 193 `i 267  ]
+[; ;RAINBO-LPF.c: 39: if (height < 247) {
+"39
+[e $ ! < -> _height `i -> 247 `i 267  ]
 {
-[; ;RAINBO-LPF.c: 44: if (height < 255) {
-"44
-[e $ ! < -> _height `i -> 255 `i 268  ]
-{
-[; ;RAINBO-LPF.c: 45: height = (height / 2) - 97;
-"45
-[e = _height -> - / -> _height `i -> 2 `i -> 97 `i `uc ]
-"46
+[; ;RAINBO-LPF.c: 40: height = (height / 4) - 31;
+"40
+[e = _height -> - / -> _height `i -> 4 `i -> 31 `i `uc ]
+"41
 }
-[; ;RAINBO-LPF.c: 46: } else {
-[e $U 269  ]
-[e :U 268 ]
-{
-[; ;RAINBO-LPF.c: 47: height = 30;
-"47
-[e = _height -> -> 30 `i `uc ]
-"48
-}
-[e :U 269 ]
-"49
-}
-[; ;RAINBO-LPF.c: 48: }
-[; ;RAINBO-LPF.c: 49: } else {
-[e $U 270  ]
+[; ;RAINBO-LPF.c: 41: } else {
+[e $U 268  ]
 [e :U 267 ]
 {
-[; ;RAINBO-LPF.c: 50: height = 0;
-"50
-[e = _height -> -> 0 `i `uc ]
-"51
+[; ;RAINBO-LPF.c: 42: height = 8;
+"42
+[e = _height -> -> 8 `i `uc ]
+"43
 }
-[e :U 270 ]
-[; ;RAINBO-LPF.c: 51: }
-[; ;RAINBO-LPF.c: 53: for (leds; leds != 0; leds--) {
-"53
+[e :U 268 ]
+[; ;RAINBO-LPF.c: 43: }
+[; ;RAINBO-LPF.c: 44: for (leds; leds != 0; leds--) {
+"44
 {
 [e _leds ]
-[e $ != -> _leds `i -> 0 `i 271  ]
-[e $U 272  ]
-[e :U 271 ]
+[e $ != -> _leds `i -> 0 `i 269  ]
+[e $U 270  ]
+[e :U 269 ]
 {
-[; ;RAINBO-LPF.c: 54: temp = (leds < height) ? green : 0;
-"54
+[; ;RAINBO-LPF.c: 45: temp = (leds < height) ? green : 0;
+"45
 [e = _temp -> ? < -> _leds `i -> _height `i : -> _green `i -> 0 `i `uc ]
-[; ;RAINBO-LPF.c: 55: for (i = 8; i != 0; i--) {
-"55
+[; ;RAINBO-LPF.c: 46: for (i = 8; i != 0; i--) {
+"46
 {
 [e = _i -> -> 8 `i `uc ]
-[e $ != -> _i `i -> 0 `i 274  ]
-[e $U 275  ]
-[e :U 274 ]
-{
-[; ;RAINBO-LPF.c: 56: asm("bsf LATA,4");
-"56
-[; <" bsf LATA,4 ;# ">
-[; ;RAINBO-LPF.c: 57: asm("nop");
-"57
-[; <" nop ;# ">
-[; ;RAINBO-LPF.c: 58: asm("btfss _temp,7");
-"58
-[; <" btfss _temp,7 ;# ">
-[; ;RAINBO-LPF.c: 59: asm("bcf LATA,4");
-"59
-[; <" bcf LATA,4 ;# ">
-[; ;RAINBO-LPF.c: 60: asm("nop");
-"60
-[; <" nop ;# ">
-[; ;RAINBO-LPF.c: 61: asm("lslf _temp,f");
-"61
-[; <" lslf _temp,f ;# ">
-[; ;RAINBO-LPF.c: 62: asm("bcf LATA,4");
-"62
-[; <" bcf LATA,4 ;# ">
-"63
-}
-"55
-[e -- _i -> -> 1 `i `uc ]
-[e $ != -> _i `i -> 0 `i 274  ]
-[e :U 275 ]
-"63
-}
-[; ;RAINBO-LPF.c: 63: }
-[; ;RAINBO-LPF.c: 64: temp = red;
-"64
-[e = _temp _red ]
-[; ;RAINBO-LPF.c: 65: for (i = 8; i != 0; i--) {
-"65
-{
-[e = _i -> -> 8 `i `uc ]
-[e $ != -> _i `i -> 0 `i 277  ]
-[e $U 278  ]
-[e :U 277 ]
-{
-[; ;RAINBO-LPF.c: 66: asm("bsf LATA,4");
-"66
-[; <" bsf LATA,4 ;# ">
-[; ;RAINBO-LPF.c: 67: asm("nop");
-"67
-[; <" nop ;# ">
-[; ;RAINBO-LPF.c: 68: asm("btfss _temp,7");
-"68
-[; <" btfss _temp,7 ;# ">
-[; ;RAINBO-LPF.c: 69: asm("bcf LATA,4");
-"69
-[; <" bcf LATA,4 ;# ">
-[; ;RAINBO-LPF.c: 70: asm("nop");
-"70
-[; <" nop ;# ">
-[; ;RAINBO-LPF.c: 71: asm("lslf _temp,f");
-"71
-[; <" lslf _temp,f ;# ">
-[; ;RAINBO-LPF.c: 72: asm("bcf LATA,4");
-"72
-[; <" bcf LATA,4 ;# ">
-"73
-}
-"65
-[e -- _i -> -> 1 `i `uc ]
-[e $ != -> _i `i -> 0 `i 277  ]
-[e :U 278 ]
-"73
-}
-[; ;RAINBO-LPF.c: 73: }
-[; ;RAINBO-LPF.c: 74: temp = blue;
-"74
-[e = _temp _blue ]
-[; ;RAINBO-LPF.c: 75: for (i = 8; i != 0; i--) {
-"75
-{
-[e = _i -> -> 8 `i `uc ]
-[e $ != -> _i `i -> 0 `i 280  ]
-[e $U 281  ]
-[e :U 280 ]
-{
-[; ;RAINBO-LPF.c: 76: asm("bsf LATA,4");
-"76
-[; <" bsf LATA,4 ;# ">
-[; ;RAINBO-LPF.c: 77: asm("nop");
-"77
-[; <" nop ;# ">
-[; ;RAINBO-LPF.c: 78: asm("btfss _temp,7");
-"78
-[; <" btfss _temp,7 ;# ">
-[; ;RAINBO-LPF.c: 79: asm("bcf LATA,4");
-"79
-[; <" bcf LATA,4 ;# ">
-[; ;RAINBO-LPF.c: 80: asm("nop");
-"80
-[; <" nop ;# ">
-[; ;RAINBO-LPF.c: 81: asm("lslf _temp,f");
-"81
-[; <" lslf _temp,f ;# ">
-[; ;RAINBO-LPF.c: 82: asm("bcf LATA,4");
-"82
-[; <" bcf LATA,4 ;# ">
-"83
-}
-"75
-[e -- _i -> -> 1 `i `uc ]
-[e $ != -> _i `i -> 0 `i 280  ]
-[e :U 281 ]
-"83
-}
-"84
-}
-"53
-[e -- _leds -> -> 1 `i `uc ]
-[e $ != -> _leds `i -> 0 `i 271  ]
+[e $ != -> _i `i -> 0 `i 272  ]
+[e $U 273  ]
 [e :U 272 ]
-"84
+{
+[; ;RAINBO-LPF.c: 47: asm("bsf LATA,4");
+"47
+[; <" bsf LATA,4 ;# ">
+[; ;RAINBO-LPF.c: 48: asm("nop");
+"48
+[; <" nop ;# ">
+[; ;RAINBO-LPF.c: 49: asm("btfss _temp,7");
+"49
+[; <" btfss _temp,7 ;# ">
+[; ;RAINBO-LPF.c: 50: asm("bcf LATA,4");
+"50
+[; <" bcf LATA,4 ;# ">
+[; ;RAINBO-LPF.c: 51: asm("nop");
+"51
+[; <" nop ;# ">
+[; ;RAINBO-LPF.c: 52: asm("lslf _temp,f");
+"52
+[; <" lslf _temp,f ;# ">
+[; ;RAINBO-LPF.c: 53: asm("bcf LATA,4");
+"53
+[; <" bcf LATA,4 ;# ">
+"54
 }
-[; ;RAINBO-LPF.c: 83: }
-[; ;RAINBO-LPF.c: 84: }
-[; ;RAINBO-LPF.c: 85: }
-"85
+"46
+[e -- _i -> -> 1 `i `uc ]
+[e $ != -> _i `i -> 0 `i 272  ]
+[e :U 273 ]
+"54
+}
+[; ;RAINBO-LPF.c: 54: }
+[; ;RAINBO-LPF.c: 55: temp = red;
+"55
+[e = _temp _red ]
+[; ;RAINBO-LPF.c: 56: for (i = 8; i != 0; i--) {
+"56
+{
+[e = _i -> -> 8 `i `uc ]
+[e $ != -> _i `i -> 0 `i 275  ]
+[e $U 276  ]
+[e :U 275 ]
+{
+[; ;RAINBO-LPF.c: 57: asm("bsf LATA,4");
+"57
+[; <" bsf LATA,4 ;# ">
+[; ;RAINBO-LPF.c: 58: asm("nop");
+"58
+[; <" nop ;# ">
+[; ;RAINBO-LPF.c: 59: asm("btfss _temp,7");
+"59
+[; <" btfss _temp,7 ;# ">
+[; ;RAINBO-LPF.c: 60: asm("bcf LATA,4");
+"60
+[; <" bcf LATA,4 ;# ">
+[; ;RAINBO-LPF.c: 61: asm("nop");
+"61
+[; <" nop ;# ">
+[; ;RAINBO-LPF.c: 62: asm("lslf _temp,f");
+"62
+[; <" lslf _temp,f ;# ">
+[; ;RAINBO-LPF.c: 63: asm("bcf LATA,4");
+"63
+[; <" bcf LATA,4 ;# ">
+"64
+}
+"56
+[e -- _i -> -> 1 `i `uc ]
+[e $ != -> _i `i -> 0 `i 275  ]
+[e :U 276 ]
+"64
+}
+[; ;RAINBO-LPF.c: 64: }
+[; ;RAINBO-LPF.c: 65: temp = blue;
+"65
+[e = _temp _blue ]
+[; ;RAINBO-LPF.c: 66: for (i = 8; i != 0; i--) {
+"66
+{
+[e = _i -> -> 8 `i `uc ]
+[e $ != -> _i `i -> 0 `i 278  ]
+[e $U 279  ]
+[e :U 278 ]
+{
+[; ;RAINBO-LPF.c: 67: asm("bsf LATA,4");
+"67
+[; <" bsf LATA,4 ;# ">
+[; ;RAINBO-LPF.c: 68: asm("nop");
+"68
+[; <" nop ;# ">
+[; ;RAINBO-LPF.c: 69: asm("btfss _temp,7");
+"69
+[; <" btfss _temp,7 ;# ">
+[; ;RAINBO-LPF.c: 70: asm("bcf LATA,4");
+"70
+[; <" bcf LATA,4 ;# ">
+[; ;RAINBO-LPF.c: 71: asm("nop");
+"71
+[; <" nop ;# ">
+[; ;RAINBO-LPF.c: 72: asm("lslf _temp,f");
+"72
+[; <" lslf _temp,f ;# ">
+[; ;RAINBO-LPF.c: 73: asm("bcf LATA,4");
+"73
+[; <" bcf LATA,4 ;# ">
+"74
+}
+"66
+[e -- _i -> -> 1 `i `uc ]
+[e $ != -> _i `i -> 0 `i 278  ]
+[e :U 279 ]
+"74
+}
+"75
+}
+"44
+[e -- _leds -> -> 1 `i `uc ]
+[e $ != -> _leds `i -> 0 `i 269  ]
+[e :U 270 ]
+"75
+}
+[; ;RAINBO-LPF.c: 74: }
+[; ;RAINBO-LPF.c: 75: }
+[; ;RAINBO-LPF.c: 76: }
+"76
 [e :UE 266 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"88
+"78
 [v _main `(i ~T0 @X0 1 ef ]
 {
-[; ;RAINBO-LPF.c: 88: int main(void) {
+[; ;RAINBO-LPF.c: 78: int main(void) {
 [e :U _main ]
 [f ]
-[; ;RAINBO-LPF.c: 89: init();
-"89
+[; ;RAINBO-LPF.c: 79: init();
+"79
 [e ( _init ..  ]
-[; ;RAINBO-LPF.c: 90: _delay((unsigned long)((200)*(32000000/4000000.0)));
-"90
+[; ;RAINBO-LPF.c: 80: _delay((unsigned long)((200)*(32000000/4000000.0)));
+"80
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[; ;RAINBO-LPF.c: 93: while (1) {
-"93
-[e :U 285 ]
+[; ;RAINBO-LPF.c: 83: while (1) {
+"83
+[e :U 283 ]
 {
-[; ;RAINBO-LPF.c: 94: max1 = 0;
-"94
+[; ;RAINBO-LPF.c: 84: max1 = 0;
+"84
 [e = _max1 -> -> 0 `i `uc ]
-[; ;RAINBO-LPF.c: 95: max2 = 0;
-"95
+[; ;RAINBO-LPF.c: 85: max2 = 0;
+"85
 [e = _max2 -> -> 0 `i `uc ]
-[; ;RAINBO-LPF.c: 96: max3 = 0;
-"96
+[; ;RAINBO-LPF.c: 86: max3 = 0;
+"86
 [e = _max3 -> -> 0 `i `uc ]
-[; ;RAINBO-LPF.c: 97: max4 = 0;
-"97
+[; ;RAINBO-LPF.c: 87: max4 = 0;
+"87
 [e = _max4 -> -> 0 `i `uc ]
-[; ;RAINBO-LPF.c: 98: tempIN = adConvert(0b00000100);
-"98
+[; ;RAINBO-LPF.c: 88: tempIN = adConvert(0b00000100);
+"88
 [e = _tempIN ( _adConvert (1 -> -> 4 `i `uc ]
-[; ;RAINBO-LPF.c: 99: if (tempIN > 193) {
-"99
-[e $ ! > -> _tempIN `i -> 193 `i 287  ]
+[; ;RAINBO-LPF.c: 89: if (tempIN > 127) {
+"89
+[e $ ! > -> _tempIN `i -> 127 `i 285  ]
 {
-[; ;RAINBO-LPF.c: 100: LPFInput[lastVal] = tempIN;
-"100
+[; ;RAINBO-LPF.c: 90: LPFInput[lastVal] = tempIN;
+"90
 [e = *U + &U _LPFInput * -> _lastVal `ux -> -> # *U &U _LPFInput `ui `ux _tempIN ]
-[; ;RAINBO-LPF.c: 101: lastVal = (lastVal == 9) ? 0 : lastVal + 1;
-"101
+[; ;RAINBO-LPF.c: 91: lastVal = (lastVal == 9) ? 0 : lastVal + 1;
+"91
 [e = _lastVal -> ? == -> _lastVal `i -> 9 `i : -> 0 `i + -> _lastVal `i -> 1 `i `uc ]
-"102
+"92
 }
-[e :U 287 ]
-[; ;RAINBO-LPF.c: 102: }
-[; ;RAINBO-LPF.c: 103: for (i = 0; i < 10; i++) {
-"103
+[e :U 285 ]
+[; ;RAINBO-LPF.c: 92: }
+[; ;RAINBO-LPF.c: 113: LPFAvg = 0;
+"113
+[e = _LPFAvg -> -> 0 `i `uc ]
+[; ;RAINBO-LPF.c: 114: for(i = 0; i != 10; i++){
+"114
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 10 `i 288  ]
-[e $U 289  ]
-[e :U 288 ]
-{
-[; ;RAINBO-LPF.c: 104: if (LPFInput[i] > max1) {
-"104
-[e $ ! > -> *U + &U _LPFInput * -> _i `ux -> -> # *U &U _LPFInput `ui `ux `i -> _max1 `i 291  ]
-{
-[; ;RAINBO-LPF.c: 105: max4 = max3;
-"105
-[e = _max4 _max3 ]
-[; ;RAINBO-LPF.c: 106: max3 = max2;
-"106
-[e = _max3 _max2 ]
-[; ;RAINBO-LPF.c: 107: max2 = max1;
-"107
-[e = _max2 _max1 ]
-[; ;RAINBO-LPF.c: 108: max1 = LPFInput[i];
-"108
-[e = _max1 *U + &U _LPFInput * -> _i `ux -> -> # *U &U _LPFInput `ui `ux ]
-"109
-}
-[e :U 291 ]
-[; ;RAINBO-LPF.c: 109: }
-[; ;RAINBO-LPF.c: 110: if (LPFInput[i] > max2) {
-"110
-[e $ ! > -> *U + &U _LPFInput * -> _i `ux -> -> # *U &U _LPFInput `ui `ux `i -> _max2 `i 292  ]
-{
-[; ;RAINBO-LPF.c: 111: max4 = max3;
-"111
-[e = _max4 _max3 ]
-[; ;RAINBO-LPF.c: 112: max3 = max2;
-"112
-[e = _max3 _max2 ]
-[; ;RAINBO-LPF.c: 113: max2 = LPFInput[i];
-"113
-[e = _max2 *U + &U _LPFInput * -> _i `ux -> -> # *U &U _LPFInput `ui `ux ]
-"114
-}
-[e :U 292 ]
-[; ;RAINBO-LPF.c: 114: }
-[; ;RAINBO-LPF.c: 115: if (LPFInput[i] > max3) {
-"115
-[e $ ! > -> *U + &U _LPFInput * -> _i `ux -> -> # *U &U _LPFInput `ui `ux `i -> _max3 `i 293  ]
-{
-[; ;RAINBO-LPF.c: 116: max4 = max3;
-"116
-[e = _max4 _max3 ]
-[; ;RAINBO-LPF.c: 117: max3 = LPFInput[i];
-"117
-[e = _max3 *U + &U _LPFInput * -> _i `ux -> -> # *U &U _LPFInput `ui `ux ]
-"118
-}
-[e :U 293 ]
-[; ;RAINBO-LPF.c: 118: }
-[; ;RAINBO-LPF.c: 119: if (LPFInput[i] > max4) {
-"119
-[e $ ! > -> *U + &U _LPFInput * -> _i `ux -> -> # *U &U _LPFInput `ui `ux `i -> _max4 `i 294  ]
-{
-[; ;RAINBO-LPF.c: 120: max4 = LPFInput[i];
-"120
-[e = _max4 *U + &U _LPFInput * -> _i `ux -> -> # *U &U _LPFInput `ui `ux ]
-"121
-}
-[e :U 294 ]
-"122
-}
-"103
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 10 `i 288  ]
-[e :U 289 ]
-"122
-}
-[; ;RAINBO-LPF.c: 121: }
-[; ;RAINBO-LPF.c: 122: }
-[; ;RAINBO-LPF.c: 123: LPFAvg = (max1 + max2 + max3 + max4) / 4;
-"123
-[e = _LPFAvg -> / + + + -> _max1 `i -> _max2 `i -> _max3 `i -> _max4 `i -> 4 `i `uc ]
-[; ;RAINBO-LPF.c: 124: if (tempIN == 0) {
-"124
-[e $ ! == -> _tempIN `i -> 0 `i 295  ]
-{
-[; ;RAINBO-LPF.c: 125: LPFAvg == 0;
-"125
-[e == -> _LPFAvg `i -> 0 `i ]
-"126
-}
-[e :U 295 ]
-[; ;RAINBO-LPF.c: 126: }
-[; ;RAINBO-LPF.c: 127: lights(LPFAvg, maxLEDs);
-"127
-[e ( _lights (2 , _LPFAvg _maxLEDs ]
-[; ;RAINBO-LPF.c: 128: _delay((unsigned long)((10)*(32000000/4000.0)));
-"128
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"129
-}
-[e :U 284 ]
-"93
-[e $U 285  ]
+[e $ != -> _i `i -> 10 `i 286  ]
+[e $U 287  ]
 [e :U 286 ]
-[; ;RAINBO-LPF.c: 129: }
-[; ;RAINBO-LPF.c: 130: }
-"130
-[e :UE 283 ]
+{
+[; ;RAINBO-LPF.c: 115: LPFAvg += LPFInput[i];
+"115
+[e =+ _LPFAvg *U + &U _LPFInput * -> _i `ux -> -> # *U &U _LPFInput `ui `ux ]
+"116
+}
+"114
+[e ++ _i -> -> 1 `i `uc ]
+[e $ != -> _i `i -> 10 `i 286  ]
+[e :U 287 ]
+"116
+}
+[; ;RAINBO-LPF.c: 116: }
+[; ;RAINBO-LPF.c: 117: LPFAvg/=10;
+"117
+[e =/ _LPFAvg -> 10 `uc ]
+[; ;RAINBO-LPF.c: 118: lights(LPFAvg, maxLEDs);
+"118
+[e ( _lights (2 , _LPFAvg _maxLEDs ]
+[; ;RAINBO-LPF.c: 119: _delay((unsigned long)((10)*(32000000/4000.0)));
+"119
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"120
+}
+[e :U 282 ]
+"83
+[e $U 283  ]
+[e :U 284 ]
+[; ;RAINBO-LPF.c: 120: }
+[; ;RAINBO-LPF.c: 121: }
+"121
+[e :UE 281 ]
 }
