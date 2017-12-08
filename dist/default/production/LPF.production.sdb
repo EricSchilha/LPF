@@ -9,8 +9,6 @@
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files\Microchip\xc8\v1.44\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"4 C:\Program Files\Microchip\xc8\v1.44\sources\common\lbdiv.c
-[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
 "6 C:\Program Files\Microchip\xc8\v1.44\sources\pic\eeprom.c
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
@@ -19,7 +17,7 @@
 [v _adConvert adConvert `(uc  1 e 1 0 ]
 "38
 [v _lights lights `(v  1 e 1 0 ]
-"78
+"83
 [v _main main `(i  1 e 2 0 ]
 "12 H:\MPLAB\LPF\RAINBO.c
 [v _init init `(v  1 e 1 0 ]
@@ -78,32 +76,20 @@
 [v _temp temp `uc  1 e 1 0 ]
 "23
 [v _i i `uc  1 e 1 0 ]
-"78
+"83
 [v _main main `(i  1 e 2 0 ]
 {
-"121
+"122
 } 0
 "38
 [v _lights lights `(v  1 e 1 0 ]
 {
 [v lights@height height `uc  1 a 1 wreg ]
 [v lights@height height `uc  1 a 1 wreg ]
-[v lights@leds leds `uc  1 p 1 9 ]
-[v lights@height height `uc  1 a 1 2 ]
-"76
-} 0
-"6 C:\Program Files\Microchip\xc8\v1.44\sources\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
-"11
-[v ___awdiv@quotient quotient `i  1 a 2 7 ]
-"12
-[v ___awdiv@sign sign `uc  1 a 1 6 ]
-[v ___awdiv@counter counter `uc  1 a 1 5 ]
-"6
-[v ___awdiv@divisor divisor `i  1 p 2 0 ]
-[v ___awdiv@dividend dividend `i  1 p 2 2 ]
-"42
+[v lights@leds leds `uc  1 p 1 0 ]
+"48
+[v lights@height height `uc  1 a 1 5 ]
+"81
 } 0
 "12 H:\MPLAB\LPF\RAINBO.c
 [v _init init `(v  1 e 1 0 ]
@@ -118,18 +104,16 @@
 [v adConvert@chan chan `uc  1 a 1 0 ]
 "36
 } 0
-"4 C:\Program Files\Microchip\xc8\v1.44\sources\common\lbdiv.c
-[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"6 C:\Program Files\Microchip\xc8\v1.44\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
-[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 7 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 6 ]
+[v ___awdiv@counter counter `uc  1 a 1 5 ]
 "6
-[v ___lbdiv@quotient quotient `uc  1 a 1 4 ]
-"7
-[v ___lbdiv@counter counter `uc  1 a 1 3 ]
-"4
-[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
-[v ___lbdiv@divisor divisor `uc  1 p 1 0 ]
-"9
-[v ___lbdiv@dividend dividend `uc  1 a 1 2 ]
-"26
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"42
 } 0
