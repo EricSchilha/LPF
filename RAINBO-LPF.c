@@ -22,6 +22,20 @@ const char maxLEDs = 30;
 unsigned char temp;
 unsigned char i;
 
+// max LPF is 251
+// min LPF is 230?
+// there will be 8 groups of 3 LEDs on each side of the gramophone
+const unsigned char LPFLookupTable[256] = {
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 221, 222, 223,
+    224, 225, 226, 227, 228, 229, 230, 0, 1, 2, 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 24, 26, 27, 28, 29, 30, 30, 30, 30, 30 // first 30 is 251th index
+};
+
 unsigned char adConvert(unsigned char chan) {
     ADON = 1;
     ADCON0 = (ADCON0 & 0b10000011);
@@ -36,16 +50,16 @@ unsigned char adConvert(unsigned char chan) {
 }
 
 void lights(unsigned char height, unsigned char leds) {
-//    if (height < 247) {
-//        if(height > 128){
-//            height = (height/4)-31;
-//        } else {
-//            height = 0;
-//        }
-//    } else {
-//        height = 30;
-//    }
-    height = height-224; 
+    //    if (height < 247) {
+    //        if(height > 128){
+    //            height = (height/4)-31;
+    //        } else {
+    //            height = 0;
+    //        }
+    //    } else {
+    //        height = 30;
+    //    }
+    // height = height-224; 
     for (leds; leds != 0; leds--) {
         temp = (leds <= height) ? green : 0;
         for (i = 8; i != 0; i--) {
@@ -91,7 +105,7 @@ int main(void) {
         max3 = 0;
         max4 = 0;
         tempIN = adConvert(LPF);
-        if (tempIN > 222) {
+        if (tempIN > 223) { //(tempIN > 222) {
             LPFInput[lastVal] = tempIN;
             lastVal = (lastVal == 9) ? 0 : lastVal + 1;
         }
@@ -116,7 +130,7 @@ int main(void) {
             }
         }
         LPFAvg = (max1 + max2 + max3 + max4) / 4;
-        lights(LPFAvg, maxLEDs);
+        lights(LPFLookupTable[LPFAvg], maxLEDs);
         __delay_ms(10);
     }
 }
