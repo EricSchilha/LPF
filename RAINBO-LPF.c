@@ -115,17 +115,14 @@ int main(void) {
                 max3 = max2;
                 max2 = max1;
                 max1 = LPFInput[i];
-            }
-            if (LPFInput[i] > max2) {
+            } else if (LPFInput[i] > max2) {
                 max4 = max3;
                 max3 = max2;
                 max2 = LPFInput[i];
-            }
-            if (LPFInput[i] > max3) {
+            } else if (LPFInput[i] > max3) {
                 max4 = max3;
                 max3 = LPFInput[i];
-            }
-            if (LPFInput[i] > max4) {
+            } else if (LPFInput[i] > max4) {
                 max4 = LPFInput[i];
             }
         }
