@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/LPF-New.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=LPF-New.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=lpf-new/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/LPF.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=LPF.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=lpf/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/lpf-new/bin
+makeDirectory ${TMPDIR}/lpf/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/lpf-new.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/lpf.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/lpf-new.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/lpf.tar *
 checkReturnCode
 
 # Cleanup
