@@ -50,11 +50,12 @@ unsigned char adConvert(unsigned char chan) {
 }
 
 void lights(unsigned char height, unsigned char leds) {
-    //    if (height > 15) {
-    //        height = (height / 8) - 1;
-    //    } else {
-    //        height = 0;
-    //    }
+//        if (height > 15) {
+//            height = (height / 8) - 1;
+//        } else {
+//            height = 0;
+//        }
+        height = (height - 63) / 8;
     for (leds; leds != 0; leds--) {
         temp = (leds <= height) ? green : 0;
         for (i = 8; i != 0; i--) {
@@ -120,7 +121,7 @@ int main(void) {
             }
         }
         LPFAvg = (max1 + max2 + max3 + max4) / 4;
-        lights(LPFLookupTable[LPFAvg], maxLEDs);
+        lights(LPFAvg, maxLEDs);
         __delay_ms(5);
     }
 }
