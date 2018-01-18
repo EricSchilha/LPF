@@ -13,11 +13,11 @@
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"39 H:\MPLAB\LPF\RAINBO-LPF.c
+"28 H:\MPLAB\LPF\RAINBO-LPF.c
 [v _adConvert adConvert `(uc  1 e 1 0 ]
-"52
+"41
 [v _lights lights `(v  1 e 1 0 ]
-"93
+"82
 [v _main main `(i  1 e 2 0 ]
 "12 H:\MPLAB\LPF\RAINBO.c
 [v _init init `(v  1 e 1 0 ]
@@ -51,6 +51,8 @@
 [v _GO GO `VEb  1 e 0 @1257 ]
 "5243
 [v _PLLR PLLR `VEb  1 e 0 @1238 ]
+"5267
+[v _RA3 RA3 `VEb  1 e 0 @99 ]
 "6 H:\MPLAB\LPF\RAINBO-LPF.c
 [v _LPFInput LPFInput `[10]uc  1 e 10 0 ]
 "7
@@ -70,26 +72,31 @@
 [v _green green `uc  1 e 1 0 ]
 "14
 [v _blue blue `uc  1 e 1 0 ]
-"20
-[v _maxLEDs maxLEDs `DCuc  1 e 1 0 ]
+"16
+[v _increasing increasing `uc  1 e 1 0 ]
 "22
+[v _maxLEDs maxLEDs `DCuc  1 e 1 0 ]
+"24
 [v _temp temp `uc  1 e 1 0 ]
-"23
+"25
 [v _i i `uc  1 e 1 0 ]
-"93
+"82
 [v _main main `(i  1 e 2 0 ]
 {
-"127
+"158
 } 0
-"52
+"41
 [v _lights lights `(v  1 e 1 0 ]
 {
 [v lights@height height `uc  1 a 1 wreg ]
+"48
+[v lights@leds leds `uc  1 a 1 7 ]
+"41
 [v lights@height height `uc  1 a 1 wreg ]
-[v lights@leds leds `uc  1 p 1 9 ]
-"58
-[v lights@height height `uc  1 a 1 2 ]
-"91
+[v lights@max max `uc  1 p 1 9 ]
+"47
+[v lights@height height `uc  1 a 1 6 ]
+"80
 } 0
 "6 C:\Program Files\Microchip\xc8\v1.44\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -109,11 +116,11 @@
 {
 "36
 } 0
-"39 H:\MPLAB\LPF\RAINBO-LPF.c
+"28 H:\MPLAB\LPF\RAINBO-LPF.c
 [v _adConvert adConvert `(uc  1 e 1 0 ]
 {
 [v adConvert@chan chan `uc  1 a 1 wreg ]
 [v adConvert@chan chan `uc  1 a 1 wreg ]
 [v adConvert@chan chan `uc  1 a 1 0 ]
-"50
+"39
 } 0

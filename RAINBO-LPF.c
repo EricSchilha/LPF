@@ -10,31 +10,20 @@ unsigned char tempIN;
 unsigned char max1 = 0, max2 = 0, max3 = 0, max4 = 0;
 
 unsigned char red = 0;
-unsigned char green = 64;
+unsigned char green = 255;
 unsigned char blue = 0;
+
+bool increasing = true;
 
 unsigned char tempRed;
 unsigned char tempGreen;
 unsigned char tempBlue;
 
-const char maxLEDs = 30;
+const char maxLEDs = 24;
 
 unsigned char temp;
 unsigned char i;
 
-// max LPF is 251
-// min LPF is 230?
-// there will be 8 groups of 3 LEDs on each side of the gramophone
-const unsigned char LPFLookupTable[256] = {
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 31
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //63
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 3, // 95
-    3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 12, 12,
-    12, 12, 13, 13, 13, 14, 14, 14, 14, 15, 15, 15, 16, 16, 16, 16, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 20, 20, 20, 20, 21, 21,
-    21, 22, 22, 22, 22, 23, 23, 23, 24, 24, 24, 24, 25, 25, 25, 26, 26, 26, 26, 27, 27, 27, 28, 28, 28, 28, 29, 29, 29, 30, 30, 30, //191
-    30, 30, 30, 30, 30, 30, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 221, 222, 223,
-    224, 225, 226, 227, 228, 229, 230, 0, 1, 2, 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 24, 26, 27, 28, 29, 30, 30, 30, 30, 30 // first 30 is 251th index
-};
 
 unsigned char adConvert(unsigned char chan) {
     ADON = 1;
@@ -49,14 +38,14 @@ unsigned char adConvert(unsigned char chan) {
     return (ADRESH);
 }
 
-void lights(unsigned char height, unsigned char leds) {
+void lights(unsigned char height, unsigned char max) {
 //        if (height > 15) {
 //            height = (height / 8) - 1;
 //        } else {
 //            height = 0;
 //        }
         height = (height - 63) / 8;
-    for (leds; leds != 0; leds--) {
+    for (unsigned char leds = 0; leds != max; leds++) {
         temp = (leds <= height) ? green : 0;
         for (i = 8; i != 0; i--) {
             asm("bsf LATA,4");
@@ -67,7 +56,7 @@ void lights(unsigned char height, unsigned char leds) {
             asm("lslf _temp,f");
             asm("bcf LATA,4");
         }
-        temp = red; //(leds < height) ? red : 0;
+        temp = (leds <= height) ? red : 0;
         for (i = 8; i != 0; i--) {
             asm("bsf LATA,4");
             asm("nop");
@@ -77,7 +66,7 @@ void lights(unsigned char height, unsigned char leds) {
             asm("lslf _temp,f");
             asm("bcf LATA,4");
         }
-        temp = blue; //(leds < height) ? blue : 0;
+        temp = (leds <= height) ? blue : 0;
         for (i = 8; i != 0; i--) {
             asm("bsf LATA,4");
             asm("nop");
@@ -96,6 +85,48 @@ int main(void) {
 
 
     while (1) {
+        if(S1 == 0){
+            if(red == 255){
+                if(increasing){
+                    green++;
+                    if(green == 255){
+                        increasing = false;
+                        red--;
+                    }
+                } else {
+                    blue--;
+                    if(blue == 0){
+                        increasing = true;
+                    }
+                }
+            } else if(green == 255) {
+                if(increasing){
+                    blue++;
+                    if(blue == 255){
+                        increasing = false;
+                        green--;
+                    }
+                } else {
+                    red--;
+                    if(red == 0){
+                        increasing = true;
+                    }
+                }
+            } else if(blue == 255) {
+                if(increasing){
+                    red++;
+                    if(red == 255){
+                        increasing = false;
+                        blue--;
+                    }
+                } else {
+                    green--;
+                    if(green == 0){
+                        increasing = true;
+                    }
+                }
+            }
+        }
         max1 = 0;
         max2 = 0;
         max3 = 0;
