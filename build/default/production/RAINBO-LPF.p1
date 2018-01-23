@@ -2142,9 +2142,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "13
 [v _green `uc ~T0 @X0 1 e ]
 [i _green
--> -> 255 `i `uc
+-> -> 64 `i `uc
 ]
-[; ;RAINBO-LPF.c: 13: unsigned char green = 255;
+[; ;RAINBO-LPF.c: 13: unsigned char green = 64;
 "14
 [v _blue `uc ~T0 @X0 1 e ]
 [i _blue
@@ -2226,9 +2226,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _height `uc ~T0 @X0 1 r1 ]
 [v _max `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;RAINBO-LPF.c: 47: height = (height - 63) / 8;
+[; ;RAINBO-LPF.c: 47: height = (height - 159) / 4;
 "47
-[e = _height -> / - -> _height `i -> 63 `i -> 8 `i `uc ]
+[e = _height -> / - -> _height `i -> 159 `i -> 4 `i `uc ]
 [; ;RAINBO-LPF.c: 48: for (unsigned char leds = 0; leds != max; leds++) {
 "48
 {
@@ -2237,9 +2237,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 270  ]
 [e :U 267 ]
 {
-[; ;RAINBO-LPF.c: 49: temp = (leds <= height) ? green : 0;
+[; ;RAINBO-LPF.c: 49: temp = (leds <= height && height != 0) ? green : 0;
 "49
-[e = _temp -> ? <= -> _leds `i -> _height `i : -> _green `i -> 0 `i `uc ]
+[e = _temp -> ? && <= -> _leds `i -> _height `i != -> _height `i -> 0 `i : -> _green `i -> 0 `i `uc ]
 [; ;RAINBO-LPF.c: 50: for (i = 8; i != 0; i--) {
 "50
 {
@@ -2278,9 +2278,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "58
 }
 [; ;RAINBO-LPF.c: 58: }
-[; ;RAINBO-LPF.c: 59: temp = (leds <= height) ? red : 0;
+[; ;RAINBO-LPF.c: 59: temp = (leds <= height && height != 0) ? red : 0;
 "59
-[e = _temp -> ? <= -> _leds `i -> _height `i : -> _red `i -> 0 `i `uc ]
+[e = _temp -> ? && <= -> _leds `i -> _height `i != -> _height `i -> 0 `i : -> _red `i -> 0 `i `uc ]
 [; ;RAINBO-LPF.c: 60: for (i = 8; i != 0; i--) {
 "60
 {
@@ -2319,9 +2319,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "68
 }
 [; ;RAINBO-LPF.c: 68: }
-[; ;RAINBO-LPF.c: 69: temp = (leds <= height) ? blue : 0;
+[; ;RAINBO-LPF.c: 69: temp = (leds <= height && height != 0) ? blue : 0;
 "69
-[e = _temp -> ? <= -> _leds `i -> _height `i : -> _blue `i -> 0 `i `uc ]
+[e = _temp -> ? && <= -> _leds `i -> _height `i != -> _height `i -> 0 `i : -> _blue `i -> 0 `i `uc ]
 [; ;RAINBO-LPF.c: 70: for (i = 8; i != 0; i--) {
 "70
 {
@@ -2395,9 +2395,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "88
 [e $ ! == -> _RA3 `i -> 0 `i 284  ]
 {
-[; ;RAINBO-LPF.c: 89: if(red == 255){
+[; ;RAINBO-LPF.c: 89: if(red == 64){
 "89
-[e $ ! == -> _red `i -> 255 `i 285  ]
+[e $ ! == -> _red `i -> 64 `i 285  ]
 {
 [; ;RAINBO-LPF.c: 90: if(increasing){
 "90
@@ -2406,9 +2406,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RAINBO-LPF.c: 91: green++;
 "91
 [e ++ _green -> -> 1 `i `uc ]
-[; ;RAINBO-LPF.c: 92: if(green == 255){
+[; ;RAINBO-LPF.c: 92: if(green == 64){
 "92
-[e $ ! == -> _green `i -> 255 `i 287  ]
+[e $ ! == -> _green `i -> 64 `i 287  ]
 {
 [; ;RAINBO-LPF.c: 93: increasing = 0;
 "93
@@ -2446,10 +2446,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;RAINBO-LPF.c: 100: }
 [; ;RAINBO-LPF.c: 101: }
-[; ;RAINBO-LPF.c: 102: } else if(green == 255) {
+[; ;RAINBO-LPF.c: 102: } else if(green == 64) {
 [e $U 290  ]
 [e :U 285 ]
-[e $ ! == -> _green `i -> 255 `i 291  ]
+[e $ ! == -> _green `i -> 64 `i 291  ]
 {
 [; ;RAINBO-LPF.c: 103: if(increasing){
 "103
@@ -2458,9 +2458,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RAINBO-LPF.c: 104: blue++;
 "104
 [e ++ _blue -> -> 1 `i `uc ]
-[; ;RAINBO-LPF.c: 105: if(blue == 255){
+[; ;RAINBO-LPF.c: 105: if(blue == 64){
 "105
-[e $ ! == -> _blue `i -> 255 `i 293  ]
+[e $ ! == -> _blue `i -> 64 `i 293  ]
 {
 [; ;RAINBO-LPF.c: 106: increasing = 0;
 "106
@@ -2498,10 +2498,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;RAINBO-LPF.c: 113: }
 [; ;RAINBO-LPF.c: 114: }
-[; ;RAINBO-LPF.c: 115: } else if(blue == 255) {
+[; ;RAINBO-LPF.c: 115: } else if(blue == 64) {
 [e $U 296  ]
 [e :U 291 ]
-[e $ ! == -> _blue `i -> 255 `i 297  ]
+[e $ ! == -> _blue `i -> 64 `i 297  ]
 {
 [; ;RAINBO-LPF.c: 116: if(increasing){
 "116
@@ -2510,9 +2510,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RAINBO-LPF.c: 117: red++;
 "117
 [e ++ _red -> -> 1 `i `uc ]
-[; ;RAINBO-LPF.c: 118: if(red == 255){
+[; ;RAINBO-LPF.c: 118: if(red == 64){
 "118
-[e $ ! == -> _red `i -> 255 `i 299  ]
+[e $ ! == -> _red `i -> 64 `i 299  ]
 {
 [; ;RAINBO-LPF.c: 119: increasing = 0;
 "119

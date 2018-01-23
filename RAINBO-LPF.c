@@ -10,7 +10,7 @@ unsigned char tempIN;
 unsigned char max1 = 0, max2 = 0, max3 = 0, max4 = 0;
 
 unsigned char red = 0;
-unsigned char green = 255;
+unsigned char green = 64;
 unsigned char blue = 0;
 
 bool increasing = true;
@@ -44,9 +44,9 @@ void lights(unsigned char height, unsigned char max) {
 //        } else {
 //            height = 0;
 //        }
-        height = (height - 63) / 8;
+        height = (height - 159) / 8;
     for (unsigned char leds = 0; leds != max; leds++) {
-        temp = (leds <= height) ? green : 0;
+        temp = (leds <= height && height != 0) ? green : 0;
         for (i = 8; i != 0; i--) {
             asm("bsf LATA,4");
             asm("nop");
@@ -56,7 +56,7 @@ void lights(unsigned char height, unsigned char max) {
             asm("lslf _temp,f");
             asm("bcf LATA,4");
         }
-        temp = (leds <= height) ? red : 0;
+        temp = (leds <= height && height != 0) ? red : 0;
         for (i = 8; i != 0; i--) {
             asm("bsf LATA,4");
             asm("nop");
@@ -66,7 +66,7 @@ void lights(unsigned char height, unsigned char max) {
             asm("lslf _temp,f");
             asm("bcf LATA,4");
         }
-        temp = (leds <= height) ? blue : 0;
+        temp = (leds <= height && height != 0) ? blue : 0;
         for (i = 8; i != 0; i--) {
             asm("bsf LATA,4");
             asm("nop");
@@ -86,10 +86,10 @@ int main(void) {
 
     while (1) {
         if(S1 == 0){
-            if(red == 255){
+            if(red == 64){
                 if(increasing){
                     green++;
-                    if(green == 255){
+                    if(green == 64){
                         increasing = false;
                         red--;
                     }
@@ -99,10 +99,10 @@ int main(void) {
                         increasing = true;
                     }
                 }
-            } else if(green == 255) {
+            } else if(green == 64) {
                 if(increasing){
                     blue++;
-                    if(blue == 255){
+                    if(blue == 64){
                         increasing = false;
                         green--;
                     }
@@ -112,10 +112,10 @@ int main(void) {
                         increasing = true;
                     }
                 }
-            } else if(blue == 255) {
+            } else if(blue == 64) {
                 if(increasing){
                     red++;
-                    if(red == 255){
+                    if(red == 64){
                         increasing = false;
                         blue--;
                     }

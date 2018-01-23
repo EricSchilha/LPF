@@ -90,12 +90,12 @@
 {
 [v lights@height height `uc  1 a 1 wreg ]
 "48
-[v lights@leds leds `uc  1 a 1 7 ]
+[v lights@leds leds `uc  1 a 1 6 ]
 "41
 [v lights@height height `uc  1 a 1 wreg ]
 [v lights@max max `uc  1 p 1 9 ]
 "47
-[v lights@height height `uc  1 a 1 6 ]
+[v lights@height height `uc  1 a 1 7 ]
 "80
 } 0
 "6 C:\Program Files\Microchip\xc8\v1.44\sources\common\awdiv.c
