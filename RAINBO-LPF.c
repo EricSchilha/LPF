@@ -44,7 +44,7 @@ void lights(unsigned char height, unsigned char max) {
 //        } else {
 //            height = 0;
 //        }
-        height = (height - 159) / 8;
+        height = (height - 111) / 6;
     for (unsigned char leds = 0; leds != max; leds++) {
         temp = (leds <= height && height != 0) ? green : 0;
         for (i = 8; i != 0; i--) {
